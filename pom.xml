@@ -42,7 +42,7 @@
   </modules>
   <scm>
     <connection>scm:git:https://github.com/hazendaz/catch-exception.git</connection>
-    <developerConnection>scm:git:git@github.com:hazendaz/catch-exception.git</developerConnection>
+    <developerConnection>scm:git:ssh://git@github.com/hazendaz/catch-exception.git</developerConnection>
     <url>https://github.com/hazendaz/catch-exception/</url>
     <tag>HEAD</tag>
   </scm>
