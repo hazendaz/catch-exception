@@ -41,9 +41,9 @@
     <module>catch-throwable</module>
   </modules>
   <scm>
-    <connection>scm:git:https://github.com/Codearte/catch-exception.git</connection>
-    <developerConnection>scm:git:git@github.com:Codearte/catch-exception.git</developerConnection>
-    <url>https://github.com/Codearte/catch-exception/</url>
+    <connection>scm:git:https://github.com/hazendaz/catch-exception.git</connection>
+    <developerConnection>scm:git:git@github.com:hazendaz/catch-exception.git</developerConnection>
+    <url>https://github.com/hazendaz/catch-exception/</url>
     <tag>HEAD</tag>
   </scm>
   <distributionManagement>
