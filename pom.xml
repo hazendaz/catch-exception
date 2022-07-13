@@ -41,7 +41,7 @@
     <module>catch-throwable</module>
   </modules>
   <scm>
-    <connection>scm:git:https://github.com/hazendaz/catch-exception.git</connection>
+    <connection>scm:git:https://github.com/hazendaz/catch-exception</connection>
     <developerConnection>scm:git:ssh://git@github.com/hazendaz/catch-exception.git</developerConnection>
     <url>https://github.com/hazendaz/catch-exception/</url>
     <tag>HEAD</tag>
