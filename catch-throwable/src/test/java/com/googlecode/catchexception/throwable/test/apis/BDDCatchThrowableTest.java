@@ -36,7 +36,7 @@ import org.junit.Test;
 public class BDDCatchThrowableTest {
 
     /**
-     * The message of the exception thrown by new ArrayList<String>().get(0) for jdk9on.
+     * The message of the exception thrown by {@code new ArrayList<String>().get(0) } for jdk9on.
      */
     private final String expectedMessageJdk9on = "Index 1 out of bounds for length 0";
 

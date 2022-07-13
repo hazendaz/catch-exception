@@ -42,12 +42,12 @@ public class CatchThrowableTest {
     private final List<String> list = new ArrayList<>();
 
     /**
-     * The message of the exception thrown by new ArrayList<String>().get(0).
+     * The message of the exception thrown by {@code new ArrayList<String>().get(0) }.
      */
     private final String expectedMessage = "Index: 0, Size: 0";
 
     /**
-     * The message of the exception thrown by new ArrayList<String>().get(0) for jdk9on.
+     * The message of the exception thrown by {@code new ArrayList<String>().get(0) } for jdk9on.
      */
     private final String expectedMessageJdk9on = "Index 0 out of bounds for length 0";
 

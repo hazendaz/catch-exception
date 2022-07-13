@@ -46,7 +46,7 @@ import com.googlecode.catchexception.throwable.matcher.Find;
 public class CatchThrowableHamcrestMatchersTest {
 
     /**
-     * The message of the exception thrown by new ArrayList<String>().get(0) for jdk9on.
+     * The message of the exception thrown by {@code new ArrayList<String>().get(0) } for jdk9on.
      */
     private final String expectedMessageJdk9on = "Index 9 out of bounds for length 9";
 

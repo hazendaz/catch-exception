@@ -26,7 +26,7 @@ import com.googlecode.catchexception.apis.CatchExceptionHamcrestMatchers;
  * href="http://code.google.com/p/catch-exception/" >catch-exception</a> web
  * page.
  *
- * <h3>Documentation</h3>
+ * <strong>Documentation</strong>
  *
  * <b> <a href="#1">1. How to use catch-exception?</a>
 
@@ -54,7 +54,7 @@ import com.googlecode.catchexception.apis.CatchExceptionHamcrestMatchers;
  *
  * </b>
  *
- * <h4>1. How to use catch-exception?</h4>
+ * <strong>1. How to use catch-exception?</strong>
  *
  * The most basic usage is:
  * <code>import static com.googlecode.catchexception.CatchException.*;
@@ -93,7 +93,7 @@ import com.googlecode.catchexception.apis.CatchExceptionHamcrestMatchers;
  * <li>{@link BDDCatchException} - a BDD-like approach,
  * <li> {@link CatchExceptionHamcrestMatchers} - Hamcrest assertions
  * </ul>
- * <h3>2. What is this stuff actually good for?</h3>
+ * <strong>2. What is this stuff actually good for?</strong>
  *
  * This class targets concise and robust code in tests. Dadid Saff, a commiter
  * to JUnit, has <a
@@ -119,12 +119,12 @@ import com.googlecode.catchexception.apis.CatchExceptionHamcrestMatchers;
  * <li>The test does not depend on a specific test runner (JUnit4, TestNG).
  * </ul>
  *
- * <h3>3. How does it work internally?</h3>
+ * <strong>3. How does it work internally?</strong>
  *
  * The method <code>catchException(obj)</code> wraps the given object with a
  * proxy that catches the exception, then (optionally) verifies the exception,
  * and finally attaches the exception to the current <a
- * name="threadlocal">thread</a> for further analysis. The <a
+ * id="threadlocal">thread</a> for further analysis. The <a
  * href="#proxies">known limitations</a> for proxies apply.
  *
  * Is both memory consumption and runtime a concern for you? Then use try/catch
@@ -132,7 +132,7 @@ import com.googlecode.catchexception.apis.CatchExceptionHamcrestMatchers;
  * an unnecessary overhead. If only either memory consumption or runtime is an
  * issue for you, feel free to configure the cache of the underlying proxy
  * factories as appropriate.
- * <h3>4. When is the caught exception reset?</h3>
+ * <strong>4. When is the caught exception reset?</strong>
  *
  * The Method {@link #caughtException()} returns the exception thrown by the
  * last method call on a proxied object in the current thread, i.e. it is reset
@@ -142,7 +142,7 @@ import com.googlecode.catchexception.apis.CatchExceptionHamcrestMatchers;
  * To reset the caught exception manually, call {@link #resetCaughtException()}.
  * At the moment there is no way to reset exceptions that have been caught in
  * other threads.
- * <h3>5. My code throws a ClassCastException. Why?</h3>
+ * <strong>5. My code throws a ClassCastException. Why?</strong>
  *
  * Example:
  * <code>StringBuilder sb = new StringBuilder();
@@ -173,7 +173,7 @@ import com.googlecode.catchexception.apis.CatchExceptionHamcrestMatchers;
  * &#064;PrepareForTest({ MyFinalType.class })
  * public class MyTest {
  * </code>
- * <h3>6. Do I have to care about memory leaks?</h3>
+ * <strong>6. Do I have to care about memory leaks?</strong>
  *
  * This library uses a {@link ThreadLocal}. ThreadLocals are known to cause
  * memory leaks if they refer to a class the garbage collector would like to
@@ -181,13 +181,13 @@ import com.googlecode.catchexception.apis.CatchExceptionHamcrestMatchers;
  * worry you. If you use this library for other purposes than testing, you
  * should care.
  *
- * <h3>7. The caught exception is not available in another thread. Why?</h3>
+ * <strong>7. The caught exception is not available in another thread. Why?</strong>
  *
  * The caught exception is saved <a href="#threadlocal">at the thread</a> the
  * exception is thrown in. This is the reason the exception is not visible
  * within any other thread.
- * <h3>8. Is there a way to get rid of the throws clause in my test
- * method?</h3>
+ * <strong>8. Is there a way to get rid of the throws clause in my test
+ * method?</strong>
  *
  * Example:
  * <code>public void testSomething() throws Exception {
@@ -195,7 +195,7 @@ import com.googlecode.catchexception.apis.CatchExceptionHamcrestMatchers;
  * catchException(obj).do(); // do() throws a checked exception</code> No,
  * although the exception is always caught you cannot omit the throws clause in
  * your test method.
- * <h3>11. Can I catch errors instead of exceptions?</h3>
+ * <strong>11. Can I catch errors instead of exceptions?</strong>
  *
  * Yes, have a look at
  * {@code com.googlecode.catchexception.throwable.CatchThrowable} (in module
