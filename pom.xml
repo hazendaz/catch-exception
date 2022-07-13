@@ -55,6 +55,11 @@
       <id>sonatype-nexus-snapshots</id>
       <url>https://oss.sonatype.org/content/repositories/snapshots</url>
     </snapshotRepository>
+    <site>
+      <id>gh-pages-scm</id>
+      <name>gh-pages-scm</name>
+      <url>scm:git:ssh://git@github.com/hazendaz/catch-exception.git</url>
+    </site>
   </distributionManagement>
   <properties>
     <maven.compiler.target>1.8</maven.compiler.target>
