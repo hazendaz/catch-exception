@@ -26,6 +26,10 @@
       <optional>true</optional>
     </dependency>
   </dependencies>
+  <properties>
+    <!-- Automatic Module Name -->
+    <module.name>com.googlecode.catchexception.throwable</module.name>
+  </properties>
   <build>
     <plugins>
       <plugin>
