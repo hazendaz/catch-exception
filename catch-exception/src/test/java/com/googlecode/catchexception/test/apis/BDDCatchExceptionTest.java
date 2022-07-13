@@ -65,7 +65,7 @@ public class BDDCatchExceptionTest {
         }
 
         // and BDDAssertions....
-        then(new Integer(2)).isEqualTo(2);
+        then(Integer.valueOf(2)).isEqualTo(2);
         then(new Exception()).hasMessage(null);
 
     }
@@ -88,7 +88,7 @@ public class BDDCatchExceptionTest {
         }
 
         // and BDDAssertions....
-        then(new Integer(2)).isEqualTo(2);
+        then(Integer.valueOf(2)).isEqualTo(2);
         then(new Exception()).hasMessage(null);
     }
 
