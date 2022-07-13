@@ -9,6 +9,12 @@
   </parent>
   <artifactId>catch-exception</artifactId>
   <description>Catch throwables (not only exceptions)</description>
+  <scm>
+    <connection>scm:git:https://github.com/hazendaz/catch-exception.git</connection>
+    <developerConnection>scm:git:ssh://git@github.com/hazendaz/catch-exception.git</developerConnection>
+    <url>https://github.com/hazendaz/catch-exception/</url>
+    <tag>HEAD</tag>
+  </scm>
   <dependencies>
     <dependency>
       <groupId>org.assertj</groupId>
