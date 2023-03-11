@@ -13,9 +13,11 @@
   <artifactId>catch-exception-parent</artifactId>
   <version>2.1.5-SNAPSHOT</version>
   <packaging>pom</packaging>
+
   <name>catch-exception-project</name>
   <description>Catch and verify exceptions - parent module</description>
   <url>https://github.com/Codearte/catch-exception/</url>
+  <inceptionYear>2011</inceptionYear>
   <licenses>
     <license>
       <name>Apache 2</name>
@@ -24,6 +26,7 @@
       <comments>A business-friendly OSS license</comments>
     </license>
   </licenses>
+
   <developers>
     <developer>
       <id>rwoo</id>
@@ -36,10 +39,12 @@
       <email>mariuszs@gmail.com</email>
     </developer>
   </developers>
+
   <modules>
     <module>catch-exception</module>
     <module>catch-throwable</module>
   </modules>
+
   <scm>
     <connection>scm:git:ssh://git@github.com/hazendaz/catch-exception.git</connection>
     <developerConnection>scm:git:ssh://git@github.com/hazendaz/catch-exception.git</developerConnection>
@@ -47,32 +52,21 @@
     <tag>HEAD</tag>
   </scm>
   <distributionManagement>
-    <repository>
-      <id>sonatype-nexus-staging</id>
-      <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-    </repository>
-    <snapshotRepository>
-      <id>sonatype-nexus-snapshots</id>
-      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-    </snapshotRepository>
     <site>
       <id>gh-pages-scm</id>
       <name>gh-pages-scm</name>
       <url>scm:git:ssh://git@github.com/hazendaz/catch-exception.git</url>
     </site>
   </distributionManagement>
-  <properties>
-    <maven.compiler.target>1.8</maven.compiler.target>
-    <maven.compiler.source>1.8</maven.compiler.source>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <project.inceptionYear>2011</project.inceptionYear>
 
+  <properties>
     <!-- Automatic Module Name -->
     <module.name>com.googlecode.catchexception.parent</module.name>
 
     <!-- Reproducible Builds -->
     <project.build.outputTimestamp>1677357408</project.build.outputTimestamp>
   </properties>
+
   <dependencyManagement>
     <dependencies>
       <dependency>
@@ -95,81 +89,11 @@
       </dependency>
     </dependencies>
   </dependencyManagement>
+
   <build>
-    <pluginManagement>
-      <plugins>
-        <plugin>
-          <artifactId>maven-clean-plugin</artifactId>
-          <version>3.2.0</version>
-        </plugin>
-        <plugin>
-          <artifactId>maven-javadoc-plugin</artifactId>
-          <version>3.5.0</version>
-        </plugin>
-        <plugin>
-          <artifactId>maven-site-plugin</artifactId>
-          <version>3.12.1</version>
-        </plugin>
-        <plugin>
-          <artifactId>maven-release-plugin</artifactId>
-          <version>3.0.0-M7</version>
-          <configuration>
-            <mavenExecutorId>forked-path</mavenExecutorId>
-            <pushChanges>false</pushChanges>
-            <localCheckout>true</localCheckout>
-            <autoVersionSubmodules>true</autoVersionSubmodules>
-            <tagNameFormat>v@{project.version}</tagNameFormat>
-          </configuration>
-        </plugin>
-        <plugin>
-          <artifactId>maven-gpg-plugin</artifactId>
-          <version>3.0.1</version>
-          <executions>
-            <execution>
-              <id>sign-artifacts</id>
-              <phase>verify</phase>
-              <goals>
-                <goal>sign</goal>
-              </goals>
-            </execution>
-          </executions>
-        </plugin>
-        <plugin>
-          <artifactId>maven-surefire-plugin</artifactId>
-          <version>3.0.0-M9</version>
-        </plugin>
-        <plugin>
-          <groupId>io.jsonwebtoken.coveralls</groupId>
-          <artifactId>coveralls-maven-plugin</artifactId>
-          <version>4.4.1</version>
-        </plugin>
-        <plugin>
-          <groupId>org.jacoco</groupId>
-          <artifactId>jacoco-maven-plugin</artifactId>
-          <version>0.8.8</version>
-        </plugin>
-      </plugins>
-    </pluginManagement>
     <plugins>
       <plugin>
-        <groupId>org.jacoco</groupId>
-        <artifactId>jacoco-maven-plugin</artifactId>
-        <executions>
-          <execution>
-            <id>prepare-agent</id>
-            <goals>
-              <goal>prepare-agent</goal>
-            </goals>
-          </execution>
-          <execution>
-            <id>report</id>
-            <goals>
-              <goal>report</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
-      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-javadoc-plugin</artifactId>
         <executions>
           <execution>
@@ -211,39 +135,6 @@
           <failIfMissing>false</failIfMissing>
         </configuration>
       </plugin>
-      <plugin>
-        <artifactId>maven-install-plugin</artifactId>
-        <version>3.1.0</version>
-      </plugin>
     </plugins>
   </build>
-  <profiles>
-    <profile>
-      <id>release</id>
-      <activation>
-        <property>
-          <name>performRelease</name>
-          <value>true</value>
-        </property>
-      </activation>
-      <build>
-        <plugins>
-          <plugin>
-            <artifactId>maven-gpg-plugin</artifactId>
-          </plugin>
-          <plugin>
-            <groupId>org.sonatype.plugins</groupId>
-            <artifactId>nexus-staging-maven-plugin</artifactId>
-            <version>1.6.13</version>
-            <extensions>true</extensions>
-            <configuration>
-              <serverId>sonatype-nexus-staging</serverId>
-              <nexusUrl>https://oss.sonatype.org/</nexusUrl>
-              <autoReleaseAfterClose>true</autoReleaseAfterClose>
-            </configuration>
-          </plugin>
-        </plugins>
-      </build>
-    </profile>
-  </profiles>
 </project>
