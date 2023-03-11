@@ -3,7 +3,7 @@ name: Sonatype
 on:
   push:
     branches:
-      - master
+      - master-fork
 
 jobs:
   build:
