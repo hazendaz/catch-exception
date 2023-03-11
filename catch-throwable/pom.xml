@@ -5,7 +5,6 @@
     <groupId>com.github.hazendaz.catch-exception</groupId>
     <artifactId>catch-exception-parent</artifactId>
     <version>2.1.5-SNAPSHOT</version>
-    <relativePath>../pom.xml</relativePath>
   </parent>
   <artifactId>catch-throwable</artifactId>
   <description>Catch throwables (not only exceptions)</description>
