@@ -22,8 +22,6 @@ import org.hamcrest.Matcher;
 /**
  * Creates a {@link Matcher matcher} that matches an exception that has no {@link Throwable#getCause() cause}.
  *
- * @author rwoo
- *
  * @param <T>
  *            an exception subclass
  */

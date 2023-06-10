@@ -25,8 +25,6 @@ import org.junit.Test;
 
 /**
  * Tests custom exception assertions.
- *
- * @author mariuszs
  */
 @SuppressWarnings("javadoc")
 public class BDDCustomCatchExceptionTest {

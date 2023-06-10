@@ -23,8 +23,6 @@ import org.hamcrest.Matcher;
 /**
  * Creates a {@link Matcher matcher} that matches an throwable with a certain message.
  *
- * @author rwoo
- *
  * @param <T>
  *            an throwable subclass
  */

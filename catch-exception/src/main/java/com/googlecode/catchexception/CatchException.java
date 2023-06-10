@@ -113,8 +113,6 @@ import com.googlecode.catchexception.apis.CatchExceptionHamcrestMatchers;
  * cannot omit the throws clause in your test method. <strong>11. Can I catch errors instead of exceptions?</strong>
  * Yes, have a look at {@code com.googlecode.catchexception.throwable.CatchThrowable} (in module catch-throwable).
  *
- * @author rwoo
- *
  * @since 16.09.2011
  */
 public class CatchException {

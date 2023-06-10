@@ -41,8 +41,6 @@ import com.googlecode.catchexception.throwable.ThrowingCallable;
  thenThrown(IndexOutOfBoundsThrowable.class);
  </code>
  *
- * @author rwoo
- * @author mariuszs
  *
  * @since 1.3.0
  */

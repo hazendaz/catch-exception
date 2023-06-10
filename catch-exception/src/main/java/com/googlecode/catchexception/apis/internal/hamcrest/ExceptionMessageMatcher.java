@@ -23,8 +23,6 @@ import org.hamcrest.Matcher;
 /**
  * Creates a {@link Matcher matcher} that matches an exception with a certain message.
  *
- * @author rwoo
- *
  * @param <T>
  *            an exception subclass
  */

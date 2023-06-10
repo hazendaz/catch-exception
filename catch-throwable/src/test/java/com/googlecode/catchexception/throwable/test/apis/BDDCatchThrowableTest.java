@@ -29,8 +29,6 @@ import org.junit.Test;
 
 /**
  * Tests {@link com.googlecode.catchexception.throwable.apis.BDDCatchThrowable}.
- *
- * @author rwoo
  */
 @SuppressWarnings("javadoc")
 public class BDDCatchThrowableTest {

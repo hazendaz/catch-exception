@@ -25,8 +25,6 @@ import org.junit.Test;
 
 /**
  * Tests custom throwable assertions.
- *
- * @author rwoo
  */
 @SuppressWarnings("javadoc")
 public class BDDCustomCatchThrowableTest {

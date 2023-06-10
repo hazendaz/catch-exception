@@ -42,9 +42,6 @@ import com.googlecode.catchexception.ThrowingCallable;
  * thenThrown(IndexOutOfBoundsException.class);
  * }
  *
- * @author rwoo
- * @author mariuszs
- *
  * @since 1.3.0
  */
 public class BDDCatchException {

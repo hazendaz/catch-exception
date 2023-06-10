@@ -45,8 +45,6 @@ assertThat(caughtException(),
  * <p>
  * Hint: This class might use <a href="http://code.google.com/p/hamsandwich">hamsandwich</a> in the future but as long
  * as hamsandwich is not in any public maven repository, this class will not use hamsandwich.
- *
- * @author rwoo
  */
 public class CatchExceptionHamcrestMatchers {
 

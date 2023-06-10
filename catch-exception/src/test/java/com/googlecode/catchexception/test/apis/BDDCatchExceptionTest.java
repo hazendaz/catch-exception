@@ -31,8 +31,6 @@ import org.junit.Test;
 
 /**
  * Tests {@link com.googlecode.catchexception.apis.BDDCatchException}.
- *
- * @author rwoo
  */
 @SuppressWarnings("javadoc")
 public class BDDCatchExceptionTest {

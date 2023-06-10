@@ -16,8 +16,6 @@
 package com.googlecode.catchexception.throwable;
 
 /**
- * @author rwoo
- *
  * @since 1.2.0
  */
 public class CatchThrowable {

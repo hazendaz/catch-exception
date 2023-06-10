@@ -20,8 +20,6 @@ import java.io.Serializable;
 /**
  * Thrown if a method has not thrown an exception of the expected type.
  *
- * @author rwoo
- *
  * @since 16.09.2011
  */
 public class ExceptionNotThrownAssertionError extends AssertionError {

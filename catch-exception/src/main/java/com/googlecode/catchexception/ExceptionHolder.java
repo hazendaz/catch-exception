@@ -19,8 +19,6 @@ import java.lang.ref.WeakReference;
 
 /**
  * Holds a caught exception {@link ThreadLocal per Thread}.
- *
- * @author rwoo
  */
 class ExceptionHolder {
 

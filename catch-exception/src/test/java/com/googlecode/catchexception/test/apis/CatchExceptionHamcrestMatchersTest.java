@@ -39,8 +39,6 @@ import org.junit.Test;
 
 /**
  * Tests {@link CatchExceptionHamcrestMatchers}.
- *
- * @author rwoo
  */
 @SuppressWarnings("javadoc")
 public class CatchExceptionHamcrestMatchersTest {

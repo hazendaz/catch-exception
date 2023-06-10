@@ -17,8 +17,6 @@ package com.googlecode.catchexception.throwable;
 
 /**
  * Code borrowed from famous Spock Framework
- *
- * @author Peter Niederwieser
  */
 class ExceptionUtil {
 

@@ -21,8 +21,6 @@ import org.junit.Test;
 
 /**
  * Tests {@link ExceptionHolder}
- *
- * @author rwoo
  */
 @SuppressWarnings("javadoc")
 public class ExceptionHolderTest {

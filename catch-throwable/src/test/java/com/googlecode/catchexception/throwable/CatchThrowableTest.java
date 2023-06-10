@@ -33,8 +33,6 @@ import org.junit.Test;
 /**
  * Tests {@link CatchThrowable}.
  *
- * @author rwoo
- *
  * @since 16.09.2011
  */
 @SuppressWarnings("javadoc")
