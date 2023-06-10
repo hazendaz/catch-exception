@@ -22,25 +22,25 @@ import com.googlecode.catchexception.throwable.ThrowingCallable;
  * Supports <a href="http://en.wikipedia.org/wiki/Behavior_Driven_Development">BDD</a>-like approach to catch and verify
  * throwables (<i>given/when/then</i>).
  * <p>
- * <code>import static com.googlecode.catchexception.throwable.apis
+ * {@code
+ * import static com.googlecode.catchexception.throwable.apis
  * .BDDCatchThrowable.*;
-
- // given an empty list
- List myList = new ArrayList();
-
- // when we try to get the first element of the list
- when(myList).get(1);
-
- // then we expect an IndexOutOfBoundsThrowable
- then(caughtThrowable())
- .isInstanceOf(IndexOutOfBoundsThrowable.class)
- .hasMessage("Index: 1, Size: 0")
- .hasNoCause();
-
- // then we expect an IndexOutOfBoundsThrowable (alternatively)
- thenThrown(IndexOutOfBoundsThrowable.class);
- </code>
  *
+ * // given an empty list
+ * List myList = new ArrayList();
+ *
+ * // when we try to get the first element of the list
+ * when(myList).get(1);
+ *
+ * // then we expect an IndexOutOfBoundsThrowable
+ * then(caughtThrowable())
+ * .isInstanceOf(IndexOutOfBoundsThrowable.class)
+ * .hasMessage("Index: 1, Size: 0")
+ * .hasNoCause();
+ *
+ * // then we expect an IndexOutOfBoundsThrowable (alternatively)
+ * thenThrown(IndexOutOfBoundsThrowable.class);
+ * }
  *
  * @since 1.3.0
  */

@@ -24,20 +24,22 @@ import org.junit.matchers.JUnitMatchers;
 /**
  * Provides some Hamcrest {@link Matcher matchers} to match some {@link Exception exception} properties.
  * <p>
- * EXAMPLE: <code>// given an empty list
-List myList = new ArrayList();
-
-// when we try to get the first element of the list
-catchException(myList).get(1);
-
-// then we expect an IndexOutOfBoundsException with message "Index: 1, Size: 0"
-assertThat(caughtException(),
-  allOf(
-    is(IndexOutOfBoundsException.class),
-    hasMessage("Index: 1, Size: 0"),
-    hasNoCause()
-  )
-);</code>
+ * EXAMPLE: {@code
+ * // given an empty list
+ * List myList = new ArrayList();
+ *
+ * // when we try to get the first element of the list
+ * catchException(myList).get(1);
+ *
+ * // then we expect an IndexOutOfBoundsException with message "Index: 1, Size: 0"
+ * assertThat(caughtException(),
+ * allOf(
+ *   is(IndexOutOfBoundsException.class),
+ *   hasMessage("Index: 1, Size: 0"),
+ *   hasNoCause()
+ * )
+ * );
+ * }
  * <p>
  * To combine the standard Hamcrest matchers, your custom matchers, these matchers, and other matcher collections (as
  * {@link JUnitMatchers}) in a single class follow the instructions outlined in
