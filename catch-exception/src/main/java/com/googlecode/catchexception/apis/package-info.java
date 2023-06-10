@@ -13,5 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-/** This public package contains alternative APIs to catch and verify exceptions. */
+/**
+ * This public package contains alternative APIs to catch and verify exceptions.
+ */
 package com.googlecode.catchexception.apis;

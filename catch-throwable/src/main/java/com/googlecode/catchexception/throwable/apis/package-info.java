@@ -13,5 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-/** This public package contains alternative APIs to catch and verify throwables. */
+/**
+ * This public package contains alternative APIs to catch and verify throwables.
+ */
 package com.googlecode.catchexception.throwable.apis;
