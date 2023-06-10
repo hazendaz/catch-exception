@@ -32,8 +32,6 @@ import org.junit.Test;
 
 /**
  * Tests {@link CatchThrowable}.
- *
- * @since 16.09.2011
  */
 @SuppressWarnings("javadoc")
 public class CatchThrowableTest {

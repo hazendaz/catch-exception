@@ -19,8 +19,6 @@ import java.io.Serializable;
 
 /**
  * Thrown if a method has not thrown an throwable of the expected type.
- *
- * @since 16.09.2011
  */
 public class ThrowableNotThrownAssertionError extends AssertionError {
 

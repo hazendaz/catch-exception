@@ -41,8 +41,6 @@ import com.googlecode.catchexception.throwable.ThrowingCallable;
  * // then we expect an IndexOutOfBoundsThrowable (alternatively)
  * thenThrown(IndexOutOfBoundsThrowable.class);
  * }
- *
- * @since 1.3.0
  */
 public class BDDCatchThrowable {
 

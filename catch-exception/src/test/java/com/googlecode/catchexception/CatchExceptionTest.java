@@ -32,8 +32,6 @@ import org.junit.Test;
 
 /**
  * Tests {@link CatchException}.
- *
- * @since 16.09.2011
  */
 @SuppressWarnings("javadoc")
 public class CatchExceptionTest {
