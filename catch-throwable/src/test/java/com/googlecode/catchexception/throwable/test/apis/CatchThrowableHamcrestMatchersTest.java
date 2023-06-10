@@ -28,14 +28,14 @@ import static org.hamcrest.CoreMatchers.isA;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
 
+import com.googlecode.catchexception.throwable.apis.CatchThrowableHamcrestMatchers;
+import com.googlecode.catchexception.throwable.matcher.Find;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
-
-import com.googlecode.catchexception.throwable.apis.CatchThrowableHamcrestMatchers;
-import com.googlecode.catchexception.throwable.matcher.Find;
 
 /**
  * Tests {@link CatchThrowableHamcrestMatchers}.
@@ -92,8 +92,8 @@ public class CatchThrowableHamcrestMatchersTest {
         } catch (AssertionError e) {
             if (!e.getMessage().contains(expectedMessageJdk9on)) {
                 assertMessage(e.getMessage(), "Expected: an instance of java.lang.IllegalArgumentException",
-                    "but: <java.lang.IndexOutOfBoundsException: Index: 9, Size: 9> is a java.lang" +
-                            ".IndexOutOfBoundsException");
+                        "but: <java.lang.IndexOutOfBoundsException: Index: 9, Size: 9> is a java.lang"
+                                + ".IndexOutOfBoundsException");
             }
         }
     }
@@ -130,7 +130,7 @@ public class CatchThrowableHamcrestMatchersTest {
         } catch (AssertionError e) {
             if (!e.getMessage().contains(expectedMessageJdk9on)) {
                 assertMessage(e.getMessage(), "Expected: has a message that is \"something went wrong\"",
-                    "but: was <java.lang.IndexOutOfBoundsException: Index: 9, Size: 9>");
+                        "but: was <java.lang.IndexOutOfBoundsException: Index: 9, Size: 9>");
             }
         }
     }
@@ -148,7 +148,7 @@ public class CatchThrowableHamcrestMatchersTest {
         } catch (AssertionError e) {
             if (!e.getMessage().contains(expectedMessageJdk9on)) {
                 assertMessage(e.getMessage(), "Expected: has a message that is \"something went wrong\"",
-                    "but: was <java.lang.IndexOutOfBoundsException: Index: 9, Size: 9>");
+                        "but: was <java.lang.IndexOutOfBoundsException: Index: 9, Size: 9>");
             }
         }
     }
@@ -166,7 +166,7 @@ public class CatchThrowableHamcrestMatchersTest {
         } catch (AssertionError e) {
             if (!e.getMessage().contains(expectedMessageJdk9on)) {
                 assertMessage(e.getMessage(), "Expected: has a message that is a string containing \"Index: 8\"",
-                    "but: was <java.lang.IndexOutOfBoundsException: Index: 9, Size: 9>");
+                        "but: was <java.lang.IndexOutOfBoundsException: Index: 9, Size: 9>");
             }
         }
     }
@@ -182,8 +182,8 @@ public class CatchThrowableHamcrestMatchersTest {
         } catch (AssertionError e) {
             if (!e.getMessage().contains(expectedMessageJdk9on)) {
                 assertMessage(e.getMessage(), //
-                    "Expected: has no cause", "but: was <java.lang.RuntimeException: "
-                            + "java.lang.IndexOutOfBoundsException:" + " Index: 9, Size: 9>");
+                        "Expected: has no cause", "but: was <java.lang.RuntimeException: "
+                                + "java.lang.IndexOutOfBoundsException:" + " Index: 9, Size: 9>");
             }
         }
     }
@@ -193,27 +193,27 @@ public class CatchThrowableHamcrestMatchersTest {
 
         if (!caughtThrowable().getMessage().contains(expectedMessageJdk9on)) {
             assertThat(caughtThrowable(), allOf( //
-                instanceOf(IndexOutOfBoundsException.class), //
-                hasMessage("Index: 9, Size: 9"),//
-                hasNoCause() //
+                    instanceOf(IndexOutOfBoundsException.class), //
+                    hasMessage("Index: 9, Size: 9"), //
+                    hasNoCause() //
             ));
         }
 
         try {
             assertThat(caughtThrowable(), allOf( //
                     instanceOf(IndexOutOfBoundsException.class), //
-                    hasMessage("something went wrong"),//
+                    hasMessage("something went wrong"), //
                     hasNoCause() //
             ));
             throw new RuntimeException("AssertionError expected");
         } catch (AssertionError e) {
             if (!caughtThrowable().getMessage().contains(expectedMessageJdk9on)) {
                 assertMessage(e.getMessage(), "Expected: " //
-                    + "(an instance of java.lang.IndexOutOfBoundsException" //
-                    + " and has a message that is \"something went wrong\"" //
-                    + " and has no cause)",
-                    "but: has a message that is \"something went wrong\" was <java.lang.IndexOutOfBoundsException: " +
-                            "Index: 9, Size: 9>");
+                        + "(an instance of java.lang.IndexOutOfBoundsException" //
+                        + " and has a message that is \"something went wrong\"" //
+                        + " and has no cause)",
+                        "but: has a message that is \"something went wrong\" was <java.lang.IndexOutOfBoundsException: "
+                                + "Index: 9, Size: 9>");
             }
         }
 

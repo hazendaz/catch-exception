@@ -19,9 +19,9 @@ import static com.googlecode.catchexception.throwable.test.apis.MyThrowableCusto
 import static com.googlecode.catchexception.throwable.test.apis.MyThrowableCustomAssertions.then;
 import static com.googlecode.catchexception.throwable.test.apis.MyThrowableCustomAssertions.when;
 
-import org.junit.Test;
-
 import com.googlecode.catchexception.throwable.MyThrowable;
+
+import org.junit.Test;
 
 /**
  * Tests custom throwable assertions.

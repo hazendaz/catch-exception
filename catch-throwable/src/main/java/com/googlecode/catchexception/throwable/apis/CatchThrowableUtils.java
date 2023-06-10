@@ -20,18 +20,18 @@ import com.googlecode.catchexception.throwable.ThrowableNotThrownAssertionError;
 
 class CatchThrowableUtils {
 
-  @SuppressWarnings({"unchecked", "rawtypes"})
-  public static void thenThrown(Class actualThrowableClazz) {
-    Throwable e = CatchThrowable.caughtThrowable();
-    if (e == null) {
-      // no throwable caught -> assertion failed
-      throw new ThrowableNotThrownAssertionError(actualThrowableClazz);
-    } else if (!actualThrowableClazz.isAssignableFrom(CatchThrowable.caughtThrowable().getClass())) {
-      // caught throwable is of wrong type -> assertion failed
-      throw new ThrowableNotThrownAssertionError(actualThrowableClazz, e);
-    } else {
-      // the caught throwable is of the expected type -> nothing to do :-)
+    @SuppressWarnings({ "unchecked", "rawtypes" })
+    public static void thenThrown(Class actualThrowableClazz) {
+        Throwable e = CatchThrowable.caughtThrowable();
+        if (e == null) {
+            // no throwable caught -> assertion failed
+            throw new ThrowableNotThrownAssertionError(actualThrowableClazz);
+        } else if (!actualThrowableClazz.isAssignableFrom(CatchThrowable.caughtThrowable().getClass())) {
+            // caught throwable is of wrong type -> assertion failed
+            throw new ThrowableNotThrownAssertionError(actualThrowableClazz, e);
+        } else {
+            // the caught throwable is of the expected type -> nothing to do :-)
+        }
     }
-  }
 
 }

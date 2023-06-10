@@ -21,12 +21,10 @@ import java.util.function.Supplier;
 
 import org.junit.Test;
 
-
 /**
  * Demonstrates how to catch exceptions that are thrown by constructors.
- * 
+ *
  * @author rwoo
- * 
  */
 @SuppressWarnings("javadoc")
 public class CatchExceptionInConstructorTest {

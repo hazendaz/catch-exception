@@ -43,15 +43,15 @@ import com.googlecode.catchexception.throwable.ThrowingCallable;
  *
  * @author rwoo
  * @author mariuszs
- * @since 1.3.0
  *
+ * @since 1.3.0
  */
 public class BDDCatchThrowable {
 
     /**
-     *
      * @param actor
      *            The instance that shall be proxied. Must not be <code>null</code>.
+     *
      * @see com.googlecode.catchexception.throwable.CatchThrowable#catchThrowable(ThrowingCallable)
      */
     public static void when(ThrowingCallable actor) {
@@ -62,9 +62,9 @@ public class BDDCatchThrowable {
      * Returns the throwable caught during the last call on the proxied object in the current thread.
      *
      * @return Returns the throwable caught during the last call on the proxied object in the current thread - if the
-     * call was made through a proxy that has been created via {@link #when(ThrowingCallable)}. Returns null the proxy
-     * has not caught an throwable. Returns null if the caught throwable belongs to a class that is no longer
-     * {@link ClassLoader loaded}.
+     *         call was made through a proxy that has been created via {@link #when(ThrowingCallable)}. Returns null the
+     *         proxy has not caught an throwable. Returns null if the caught throwable belongs to a class that is no
+     *         longer {@link ClassLoader loaded}.
      */
     public static Throwable caughtThrowable() {
         return CatchThrowable.caughtThrowable();
@@ -73,11 +73,11 @@ public class BDDCatchThrowable {
     public static <T extends Throwable> T caughtThrowable(Class<T> caughtThrowableType) {
         return CatchThrowable.caughtThrowable(caughtThrowableType);
     }
+
     /**
      * Throws an assertion if no throwable is thrown or if an throwable of an unexpected type is thrown.
      * <p>
-     * EXAMPLE:
-     * <code>// given a list with nine members
+     * EXAMPLE: <code>// given a list with nine members
      List myList = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9);
 
      // when we try to get the 500th member of the fellowship

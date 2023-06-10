@@ -21,13 +21,13 @@ import static com.googlecode.catchexception.apis.BDDCatchException.when;
 import static org.assertj.core.api.BDDAssertions.then;
 import static org.junit.Assert.assertEquals;
 
+import com.googlecode.catchexception.CatchException;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 import org.junit.Test;
-
-import com.googlecode.catchexception.CatchException;
 
 /**
  * Tests {@link com.googlecode.catchexception.apis.BDDCatchException}.
@@ -58,10 +58,9 @@ public class BDDCatchExceptionTest {
 
         // then we expect an IndexOutOfBoundsException
         if (!caughtException().getMessage().contains(expectedMessageJdk9on)) {
-            then(caughtException())
-                .isInstanceOf(IndexOutOfBoundsException.class) //
-                .hasMessage("Index: 1, Size: 0") //
-                .hasNoCause();
+            then(caughtException()).isInstanceOf(IndexOutOfBoundsException.class) //
+                    .hasMessage("Index: 1, Size: 0") //
+                    .hasNoCause();
         }
 
         // and BDDAssertions....
@@ -81,10 +80,9 @@ public class BDDCatchExceptionTest {
 
         // then we expect an IndexOutOfBoundsException
         if (!caughtException().getMessage().contains(expectedMessageJdk9on)) {
-            then((Throwable) CatchException.caughtException())
-                .isInstanceOf(IndexOutOfBoundsException.class) //
-                .hasMessage("Index: 1, Size: 0") //
-                .hasNoCause();
+            then((Throwable) CatchException.caughtException()).isInstanceOf(IndexOutOfBoundsException.class) //
+                    .hasMessage("Index: 1, Size: 0") //
+                    .hasNoCause();
         }
 
         // and BDDAssertions....
@@ -111,8 +109,7 @@ public class BDDCatchExceptionTest {
             thenThrown(IndexOutOfBoundsException.class);
 
         } catch (AssertionError e) {
-            assertEquals("Neither an exception of type java.lang."
-                    + "IndexOutOfBoundsException nor another exception "
+            assertEquals("Neither an exception of type java.lang." + "IndexOutOfBoundsException nor another exception "
                     + "was thrown", e.getMessage());
         }
 
@@ -124,9 +121,9 @@ public class BDDCatchExceptionTest {
         } catch (AssertionError e) {
             if (!e.getMessage().contains(expectedMessageJdk9on500)) {
                 assertEquals("Exception of type java.lang.IllegalArgumentException"
-                    + " expected but was not thrown. Instead an exception of"
-                    + " type class java.lang.ArrayIndexOutOfBoundsException"
-                    + " with message '500' was thrown.", e.getMessage());
+                        + " expected but was not thrown. Instead an exception of"
+                        + " type class java.lang.ArrayIndexOutOfBoundsException" + " with message '500' was thrown.",
+                        e.getMessage());
             }
         }
     }

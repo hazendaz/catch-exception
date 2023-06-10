@@ -34,8 +34,8 @@ import org.junit.Test;
  * Tests {@link CatchException}.
  *
  * @author rwoo
- * @since 16.09.2011
  *
+ * @since 16.09.2011
  */
 @SuppressWarnings("javadoc")
 public class CatchExceptionTest {
@@ -59,14 +59,14 @@ public class CatchExceptionTest {
     }
 
     @Test
-    public void testCatchException_ObjExc_noExceptionThrown()  {
+    public void testCatchException_ObjExc_noExceptionThrown() {
 
         catchException(list::size, IndexOutOfBoundsException.class);
         assertNull(caughtException());
     }
 
     @Test
-    public void testCatchException_ObjExc_actualClassThrown()  {
+    public void testCatchException_ObjExc_actualClassThrown() {
 
         // test for actual class
         catchException(() -> list.get(0), IndexOutOfBoundsException.class);
@@ -76,7 +76,7 @@ public class CatchExceptionTest {
     }
 
     @Test
-    public void testCatchException_ObjExc_subClassOfExpectedThrown()  {
+    public void testCatchException_ObjExc_subClassOfExpectedThrown() {
 
         // test for super class
         catchException(() -> list.get(0), RuntimeException.class);
@@ -86,7 +86,7 @@ public class CatchExceptionTest {
     }
 
     @Test
-    public void testCatchException_ObjExc_superClassOfExpectedThrown()  {
+    public void testCatchException_ObjExc_superClassOfExpectedThrown() {
 
         try {
             catchException(() -> list.get(0), ArrayIndexOutOfBoundsException.class);
@@ -97,7 +97,7 @@ public class CatchExceptionTest {
     }
 
     @Test
-    public void testCatchException_ObjExc_otherClassThanExpectedThrown()  {
+    public void testCatchException_ObjExc_otherClassThanExpectedThrown() {
 
         try {
             catchException(() -> list.get(0), IllegalArgumentException.class);
@@ -108,7 +108,7 @@ public class CatchExceptionTest {
     }
 
     @Test
-    public void testCatchException_ObjExc_missingArgument_Exception()  {
+    public void testCatchException_ObjExc_missingArgument_Exception() {
 
         // test validation of the arguments
         try {
@@ -120,7 +120,7 @@ public class CatchExceptionTest {
     }
 
     @Test
-    public void testCatchException_ObjExc_missingArgument_Object()  {
+    public void testCatchException_ObjExc_missingArgument_Object() {
 
         try {
             catchException(null, IllegalArgumentException.class);
@@ -138,8 +138,7 @@ public class CatchExceptionTest {
             fail("ExceptionNotThrownAssertionError is expected");
         } catch (ExceptionNotThrownAssertionError e) {
             assertNull(caughtException());
-            assertEquals("Neither an exception of type "
-                    + IndexOutOfBoundsException.class.getName()
+            assertEquals("Neither an exception of type " + IndexOutOfBoundsException.class.getName()
                     + " nor another exception was thrown", e.getMessage());
         }
 
@@ -175,19 +174,16 @@ public class CatchExceptionTest {
         } catch (ExceptionNotThrownAssertionError e) {
             assertNull(caughtException());
             if (!e.getMessage().contains(expectedMessageJdk9on)) {
-              assertEquals("Exception of type "
-                    + ArrayIndexOutOfBoundsException.class.getName()
-                    + " expected but was not thrown."
-                    + " Instead an exception of type "
-                    + IndexOutOfBoundsException.class + " with message '"
-                    + expectedMessage + "' was thrown.", e.getMessage());
+                assertEquals("Exception of type " + ArrayIndexOutOfBoundsException.class.getName()
+                        + " expected but was not thrown." + " Instead an exception of type "
+                        + IndexOutOfBoundsException.class + " with message '" + expectedMessage + "' was thrown.",
+                        e.getMessage());
             }
         }
     }
 
     @Test
-    public void testVerifyException_ObjExc_otherClassThanExpectedThrown()
-             {
+    public void testVerifyException_ObjExc_otherClassThanExpectedThrown() {
 
         // test for other exception type
         try {
@@ -196,22 +192,17 @@ public class CatchExceptionTest {
         } catch (ExceptionNotThrownAssertionError e) {
             assertNull(caughtException());
             if (!e.getMessage().contains(expectedMessageJdk9on)) {
-                assertEquals(
-                    "Exception of type "
-                            + IllegalArgumentException.class.getName()
-                            + " expected but was not thrown."
-                            + " Instead an exception of type "
-                            + IndexOutOfBoundsException.class
-                            + " with message '" + expectedMessage
-                            + "' was thrown.", e.getMessage());
+                assertEquals("Exception of type " + IllegalArgumentException.class.getName()
+                        + " expected but was not thrown." + " Instead an exception of type "
+                        + IndexOutOfBoundsException.class + " with message '" + expectedMessage + "' was thrown.",
+                        e.getMessage());
             }
         }
     }
 
-    //fixme
+    // fixme
     @Test
-    public void testVerifyException_ObjExc_missingArgument_Exception()
-             {
+    public void testVerifyException_ObjExc_missingArgument_Exception() {
 
         // test validation of the arguments
         try {
@@ -223,8 +214,7 @@ public class CatchExceptionTest {
     }
 
     @Test
-    public void testVerifyException_ObjExc_missingArgument_Object()
-             {
+    public void testVerifyException_ObjExc_missingArgument_Object() {
 
         try {
             verifyException(null, IllegalArgumentException.class);
@@ -235,7 +225,7 @@ public class CatchExceptionTest {
     }
 
     @Test
-    public void testVerifyException_Obj_noExceptionThrown()  {
+    public void testVerifyException_Obj_noExceptionThrown() {
 
         List<String> list = new ArrayList<>();
 
@@ -250,7 +240,7 @@ public class CatchExceptionTest {
     }
 
     @Test
-    public void testVerifyException_Obj_exceptionThrown()  {
+    public void testVerifyException_Obj_exceptionThrown() {
 
         List<String> list = new ArrayList<>();
 
@@ -261,8 +251,7 @@ public class CatchExceptionTest {
     }
 
     @Test
-    public void testVerifyException_Obj_missingArgument_Object()
-             {
+    public void testVerifyException_Obj_missingArgument_Object() {
 
         // test validation of the arguments
         try {
@@ -274,7 +263,7 @@ public class CatchExceptionTest {
     }
 
     @Test
-    public void testCatchException_Obj_noExceptionThrown()  {
+    public void testCatchException_Obj_noExceptionThrown() {
 
         List<String> list = new ArrayList<>();
 
@@ -284,7 +273,7 @@ public class CatchExceptionTest {
     }
 
     @Test
-    public void testCatchException_Obj_exceptionThrown()  {
+    public void testCatchException_Obj_exceptionThrown() {
 
         List<String> list = new ArrayList<>();
 
@@ -295,8 +284,7 @@ public class CatchExceptionTest {
     }
 
     @Test
-    public void testCatchException_Obj_missingArgument_Object()
-             {
+    public void testCatchException_Obj_missingArgument_Object() {
 
         // test validation of the arguments
         try {
@@ -308,7 +296,7 @@ public class CatchExceptionTest {
     }
 
     @Test
-    public void testProtected()  {
+    public void testProtected() {
         PublicSomethingImpl obj = new PublicSomethingImpl();
         catchException(obj::dooo);
         assertTrue(caughtException() instanceof MyException);

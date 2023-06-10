@@ -34,6 +34,7 @@ import org.junit.Test;
  * Tests {@link CatchThrowable}.
  *
  * @author rwoo
+ *
  * @since 16.09.2011
  */
 @SuppressWarnings("javadoc")
@@ -63,6 +64,7 @@ public class CatchThrowableTest {
         catchThrowable(list::size, IndexOutOfBoundsException.class);
         assertNull(caughtThrowable());
     }
+
     @Test
     public void testCatchException_throwError() {
 
@@ -182,9 +184,9 @@ public class CatchThrowableTest {
             assertNull(caughtThrowable());
             if (!e.getMessage().contains(expectedMessageJdk9on)) {
                 assertEquals("Throwable of type " + ArrayIndexOutOfBoundsException.class.getName()
-                            + " expected but was not thrown." + " Instead a throwable of type "
-                            + IndexOutOfBoundsException.class + " with message '" + expectedMessage + "' was thrown.",
-                    e.getMessage());
+                        + " expected but was not thrown." + " Instead a throwable of type "
+                        + IndexOutOfBoundsException.class + " with message '" + expectedMessage + "' was thrown.",
+                        e.getMessage());
             }
         }
     }
@@ -200,9 +202,9 @@ public class CatchThrowableTest {
             assertNull(caughtThrowable());
             if (!e.getMessage().contains(expectedMessageJdk9on)) {
                 assertEquals("Throwable of type " + IllegalArgumentException.class.getName()
-                            + " expected but was not thrown." + " Instead a throwable of type "
-                            + IndexOutOfBoundsException.class + " with message '" + expectedMessage + "' was thrown.",
-                    e.getMessage());
+                        + " expected but was not thrown." + " Instead a throwable of type "
+                        + IndexOutOfBoundsException.class + " with message '" + expectedMessage + "' was thrown.",
+                        e.getMessage());
             }
         }
 

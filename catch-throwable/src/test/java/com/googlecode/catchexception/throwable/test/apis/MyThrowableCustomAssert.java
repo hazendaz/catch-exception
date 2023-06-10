@@ -15,9 +15,9 @@
  */
 package com.googlecode.catchexception.throwable.test.apis;
 
-import org.assertj.core.api.AbstractThrowableAssert;
-
 import com.googlecode.catchexception.throwable.MyThrowable;
+
+import org.assertj.core.api.AbstractThrowableAssert;
 
 public class MyThrowableCustomAssert extends AbstractThrowableAssert<MyThrowableCustomAssert, MyThrowable> {
 

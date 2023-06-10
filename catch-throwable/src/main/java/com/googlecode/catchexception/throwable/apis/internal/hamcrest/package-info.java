@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 /**
- * This private package provides matchers for {@link com.googlecode.catchexception.throwable.apis.CatchThrowableHamcrestMatchers}.
+ * This private package provides matchers for
+ * {@link com.googlecode.catchexception.throwable.apis.CatchThrowableHamcrestMatchers}.
  */
 package com.googlecode.catchexception.throwable.apis.internal.hamcrest;

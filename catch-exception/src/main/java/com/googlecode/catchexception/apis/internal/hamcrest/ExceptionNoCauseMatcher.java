@@ -20,20 +20,17 @@ import org.hamcrest.Description;
 import org.hamcrest.Matcher;
 
 /**
- * Creates a {@link Matcher matcher} that matches an exception that has no
- * {@link Throwable#getCause() cause}.
- * 
+ * Creates a {@link Matcher matcher} that matches an exception that has no {@link Throwable#getCause() cause}.
+ *
  * @author rwoo
- * 
+ *
  * @param <T>
  *            an exception subclass
  */
-public class ExceptionNoCauseMatcher<T extends Exception> extends
-        BaseMatcher<T> {
+public class ExceptionNoCauseMatcher<T extends Exception> extends BaseMatcher<T> {
 
     /*
      * (non-Javadoc)
-     * 
      * @see org.hamcrest.Matcher#matches(java.lang.Object)
      */
     public boolean matches(Object obj) {
@@ -47,7 +44,6 @@ public class ExceptionNoCauseMatcher<T extends Exception> extends
 
     /*
      * (non-Javadoc)
-     * 
      * @see org.hamcrest.SelfDescribing#describeTo(org.hamcrest.Description)
      */
     public void describeTo(Description description) {

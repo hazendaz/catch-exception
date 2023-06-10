@@ -19,18 +19,17 @@ import com.googlecode.catchexception.CatchException;
 import com.googlecode.catchexception.ExceptionNotThrownAssertionError;
 
 class CatchExceptionUtils {
-  @SuppressWarnings({"rawtypes", "unchecked"})
-  public static void thenThrown(Class actualExceptionClazz) {
-    Exception e = CatchException.caughtException();
-    if (e == null) {
-      // no exception caught -> assertion failed
-      throw new ExceptionNotThrownAssertionError(actualExceptionClazz);
-    } else if (!actualExceptionClazz.isAssignableFrom(CatchException
-        .caughtException().getClass())) {
-      // caught exception is of wrong type -> assertion failed
-      throw new ExceptionNotThrownAssertionError(actualExceptionClazz, e);
-    } else {
-      // the caught exception is of the expected type -> nothing to do :-)
+    @SuppressWarnings({ "rawtypes", "unchecked" })
+    public static void thenThrown(Class actualExceptionClazz) {
+        Exception e = CatchException.caughtException();
+        if (e == null) {
+            // no exception caught -> assertion failed
+            throw new ExceptionNotThrownAssertionError(actualExceptionClazz);
+        } else if (!actualExceptionClazz.isAssignableFrom(CatchException.caughtException().getClass())) {
+            // caught exception is of wrong type -> assertion failed
+            throw new ExceptionNotThrownAssertionError(actualExceptionClazz, e);
+        } else {
+            // the caught exception is of the expected type -> nothing to do :-)
+        }
     }
-  }
 }

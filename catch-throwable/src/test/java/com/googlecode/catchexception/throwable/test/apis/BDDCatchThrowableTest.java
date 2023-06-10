@@ -57,9 +57,9 @@ public class BDDCatchThrowableTest {
         // then we expect an IndexOutOfBoundsException
         if (!caughtThrowable().getMessage().contains(expectedMessageJdk9on)) {
             then(caughtThrowable()) //
-                .isInstanceOf(IndexOutOfBoundsException.class) //
-                .hasMessage("Index: 1, Size: 0") //
-                .hasNoCause();
+                    .isInstanceOf(IndexOutOfBoundsException.class) //
+                    .hasMessage("Index: 1, Size: 0") //
+                    .hasNoCause();
         }
 
     }
@@ -75,10 +75,9 @@ public class BDDCatchThrowableTest {
 
         // then we expect an IndexOutOfBoundsException
         if (!caughtThrowable().getMessage().contains(expectedMessageJdk9on)) {
-            then(caughtThrowable())
-                .isInstanceOf(IndexOutOfBoundsException.class) //
-                .hasMessage("Index: 1, Size: 0") //
-                .hasNoCause();
+            then(caughtThrowable()).isInstanceOf(IndexOutOfBoundsException.class) //
+                    .hasMessage("Index: 1, Size: 0") //
+                    .hasNoCause();
         }
 
     }
@@ -114,10 +113,9 @@ public class BDDCatchThrowableTest {
         } catch (AssertionError e) {
             if (!e.getMessage().contains(expectedMessageJdk9on500)) {
                 assertEquals("Throwable of type java.lang.IllegalArgumentException"
-                            + " expected but was not thrown. Instead a throwable of"
-                            + " type class java.lang.ArrayIndexOutOfBoundsException" + " with message '500' was " +
-                            "thrown.",
-                    e.getMessage());
+                        + " expected but was not thrown. Instead a throwable of"
+                        + " type class java.lang.ArrayIndexOutOfBoundsException" + " with message '500' was "
+                        + "thrown.", e.getMessage());
             }
         }
 

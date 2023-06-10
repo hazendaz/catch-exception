@@ -19,13 +19,10 @@ import static org.junit.Assert.assertNull;
 
 import org.junit.Test;
 
-import com.googlecode.catchexception.ExceptionHolder;
-
 /**
  * Tests {@link ExceptionHolder}
- * 
+ *
  * @author rwoo
- * 
  */
 @SuppressWarnings("javadoc")
 public class ExceptionHolderTest {

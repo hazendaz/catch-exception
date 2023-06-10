@@ -21,9 +21,9 @@ import org.hamcrest.Matcher;
 
 /**
  * Creates a {@link Matcher matcher} that matches an throwable that has no {@link Throwable#getCause() cause}.
- * 
+ *
  * @author rwoo
- * 
+ *
  * @param <T>
  *            an throwable subclass
  */
@@ -31,7 +31,6 @@ public class ThrowableNoCauseMatcher<T extends Throwable> extends BaseMatcher<T>
 
     /*
      * (non-Javadoc)
-     * 
      * @see org.hamcrest.Matcher#matches(java.lang.Object)
      */
     @Override
@@ -46,7 +45,6 @@ public class ThrowableNoCauseMatcher<T extends Throwable> extends BaseMatcher<T>
 
     /*
      * (non-Javadoc)
-     * 
      * @see org.hamcrest.SelfDescribing#describeTo(org.hamcrest.Description)
      */
     @Override

@@ -15,12 +15,13 @@
  */
 package com.googlecode.catchexception.test.apis;
 
-import com.googlecode.catchexception.MyException;
-import org.junit.Test;
-
 import static com.googlecode.catchexception.test.apis.MyExceptionCustomAssertions.caughtException;
 import static com.googlecode.catchexception.test.apis.MyExceptionCustomAssertions.then;
 import static com.googlecode.catchexception.test.apis.MyExceptionCustomAssertions.when;
+
+import com.googlecode.catchexception.MyException;
+
+import org.junit.Test;
 
 /**
  * Tests custom exception assertions.
@@ -30,15 +31,15 @@ import static com.googlecode.catchexception.test.apis.MyExceptionCustomAssertion
 @SuppressWarnings("javadoc")
 public class BDDCustomCatchExceptionTest {
 
-	@Test
+    @Test
 	public void testCustomException() throws Exception {
 
 		when(this::throwMyException);
 		then(caughtException()).hasErrorCode(500);
 	}
 
-	private void throwMyException() {
-		throw new MyException(500);
-	}
+    private void throwMyException() {
+        throw new MyException(500);
+    }
 
 }

@@ -21,17 +21,14 @@ import org.hamcrest.Description;
 import org.hamcrest.Matcher;
 
 /**
- * 
- * Creates a {@link Matcher matcher} that matches an throwable with a certain
- * message.
- * 
+ * Creates a {@link Matcher matcher} that matches an throwable with a certain message.
+ *
  * @author rwoo
- * 
+ *
  * @param <T>
  *            an throwable subclass
  */
-public class ThrowableMessageMatcher<T extends Throwable> extends
-        BaseMatcher<T> {
+public class ThrowableMessageMatcher<T extends Throwable> extends BaseMatcher<T> {
 
     /**
      * The string matcher that shall match throwable message.
@@ -59,7 +56,6 @@ public class ThrowableMessageMatcher<T extends Throwable> extends
 
     /*
      * (non-Javadoc)
-     * 
      * @see org.hamcrest.Matcher#matches(java.lang.Object)
      */
     public boolean matches(Object obj) {
@@ -75,12 +71,10 @@ public class ThrowableMessageMatcher<T extends Throwable> extends
 
     /*
      * (non-Javadoc)
-     * 
      * @see org.hamcrest.SelfDescribing#describeTo(org.hamcrest.Description)
      */
     public void describeTo(Description description) {
-        description.appendText("has a message that ").appendDescriptionOf(
-                expectedMessageMatcher);
+        description.appendText("has a message that ").appendDescriptionOf(expectedMessageMatcher);
     }
 
 }

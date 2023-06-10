@@ -15,89 +15,78 @@
  */
 package com.googlecode.catchexception.apis;
 
-import org.hamcrest.Matcher;
-import org.junit.matchers.JUnitMatchers;
-
 import com.googlecode.catchexception.apis.internal.hamcrest.ExceptionMessageMatcher;
 import com.googlecode.catchexception.apis.internal.hamcrest.ExceptionNoCauseMatcher;
 
+import org.hamcrest.Matcher;
+import org.junit.matchers.JUnitMatchers;
+
 /**
- * Provides some Hamcrest {@link Matcher matchers} to match some
- * {@link Exception exception} properties.
+ * Provides some Hamcrest {@link Matcher matchers} to match some {@link Exception exception} properties.
  * <p>
- * EXAMPLE:
- * <code>// given an empty list
+ * EXAMPLE: <code>// given an empty list
 List myList = new ArrayList();
 
 // when we try to get the first element of the list
 catchException(myList).get(1);
 
-// then we expect an IndexOutOfBoundsException with message "Index: 1, Size: 0" 
+// then we expect an IndexOutOfBoundsException with message "Index: 1, Size: 0"
 assertThat(caughtException(),
   allOf(
-    is(IndexOutOfBoundsException.class), 
+    is(IndexOutOfBoundsException.class),
     hasMessage("Index: 1, Size: 0"),
     hasNoCause()
   )
 );</code>
  * <p>
- * To combine the standard Hamcrest matchers, your custom matchers, these
- * matchers, and other matcher collections (as {@link JUnitMatchers}) in a
- * single class follow the instructions outlined in <a
- * href="http://code.google.com/p/hamcrest/wiki/Tutorial#Sugar_generation">Sugar
- * generation</a>.
+ * To combine the standard Hamcrest matchers, your custom matchers, these matchers, and other matcher collections (as
+ * {@link JUnitMatchers}) in a single class follow the instructions outlined in
+ * <a href="http://code.google.com/p/hamcrest/wiki/Tutorial#Sugar_generation">Sugar generation</a>.
  * <p>
- * Hint: This class might use <a
- * href="http://code.google.com/p/hamsandwich">hamsandwich</a> in the future but
- * as long as hamsandwich is not in any public maven repository, this class will
- * not use hamsandwich.
- * 
+ * Hint: This class might use <a href="http://code.google.com/p/hamsandwich">hamsandwich</a> in the future but as long
+ * as hamsandwich is not in any public maven repository, this class will not use hamsandwich.
+ *
  * @author rwoo
  */
 public class CatchExceptionHamcrestMatchers {
 
     /**
-     * EXAMPLE:
-     * <code>assertThat(caughtException(), hasMessage("Index: 9, Size: 9"));</code>
-     * 
+     * EXAMPLE: <code>assertThat(caughtException(), hasMessage("Index: 9, Size: 9"));</code>
+     *
      * @param <T>
      *            the exception subclass
      * @param expectedMessage
      *            the expected exception message
-     * @return Returns a matcher that matches an exception if it has the given
-     *         message.
+     *
+     * @return Returns a matcher that matches an exception if it has the given message.
      */
-    public static <T extends Exception> org.hamcrest.Matcher<T> hasMessage(
-            String expectedMessage) {
+    public static <T extends Exception> org.hamcrest.Matcher<T> hasMessage(String expectedMessage) {
         return new ExceptionMessageMatcher<>(expectedMessage);
     }
 
     /**
-     * EXAMPLES:
-     * <code>assertThat(caughtException(), hasMessageThat(is("Index: 9, Size: 9")));
-assertThat(caughtException(), hasMessageThat(containsString("Index: 9"))); // using JUnitMatchers
-assertThat(caughtException(), hasMessageThat(containsPattern("Index: \\d+"))); // using Mockito's Find</code>
-     * 
+     * EXAMPLES: <code>assertThat(caughtException(), hasMessageThat(is("Index: 9, Size: 9")));
+    assertThat(caughtException(), hasMessageThat(containsString("Index: 9"))); // using JUnitMatchers
+    assertThat(caughtException(), hasMessageThat(containsPattern("Index: \\d+"))); // using Mockito's Find</code>
+     *
      * @param <T>
      *            the exception subclass
      * @param stringMatcher
      *            a string matcher
-     * @return Returns a matcher that matches an exception if the given string
-     *         matcher matches the exception message.
+     *
+     * @return Returns a matcher that matches an exception if the given string matcher matches the exception message.
      */
-    public static <T extends Exception> org.hamcrest.Matcher<T> hasMessageThat(
-            Matcher<String> stringMatcher) {
+    public static <T extends Exception> org.hamcrest.Matcher<T> hasMessageThat(Matcher<String> stringMatcher) {
         return new ExceptionMessageMatcher<>(stringMatcher);
     }
 
     /**
-     * EXAMPLE:
-     * <code>assertThat(caughtException(), hasNoCause());</code>
-     * 
+     * EXAMPLE: <code>assertThat(caughtException(), hasNoCause());</code>
+     *
      * @param <T>
      *            the exception subclass
-     * @return Returns a matcher that matches the exception if it does not have
-     *         a {@link Throwable#getCause() cause}.
+     *
+     * @return Returns a matcher that matches the exception if it does not have a {@link Throwable#getCause() cause}.
      */
     public static <T extends Exception> org.hamcrest.Matcher<T> hasNoCause() {
         return new ExceptionNoCauseMatcher<>();

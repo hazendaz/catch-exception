@@ -17,6 +17,7 @@ package com.googlecode.catchexception.throwable;
 
 /**
  * @author rwoo
+ *
  * @since 1.2.0
  */
 public class CatchThrowable {
@@ -25,12 +26,13 @@ public class CatchThrowable {
      * Returns the throwable caught during the last call on the proxied object in the current thread.
      *
      * @return Returns the throwable caught during the last call on the proxied object in the current thread - if the
-     * call was made through a proxy that has been created via {@link #verifyThrowable(ThrowingCallable, Class)}
-     * verifyThrowable()} or {@link #catchThrowable(ThrowingCallable)}. Returns null the proxy has
-     * not caught an throwable. Returns null if the caught throwable belongs to a class that is no longer
-     * {@link ClassLoader loaded}.
+     *         call was made through a proxy that has been created via {@link #verifyThrowable(ThrowingCallable, Class)}
+     *         verifyThrowable()} or {@link #catchThrowable(ThrowingCallable)}. Returns null the proxy has not caught an
+     *         throwable. Returns null if the caught throwable belongs to a class that is no longer {@link ClassLoader
+     *         loaded}.
      *
-     * @param <T> throwable caught during the last call on the proxied object
+     * @param <T>
+     *            throwable caught during the last call on the proxied object
      */
     public static <T extends Throwable> T caughtThrowable() {
         return ThrowableHolder.get();
@@ -42,18 +44,15 @@ public class CatchThrowable {
 
     /**
      * Use it to verify that an throwable is thrown and to get access to the thrown throwable (for further
-     * verifications).
-     *
-     * The following example verifies that obj.doX() throws a Throwable:
+     * verifications). The following example verifies that obj.doX() throws a Throwable:
      * <code>verifyThrowable(obj).doX(); // catch and verify
      * assert "foobar".equals(caughtThrowable().getMessage()); // further analysis
-     * </code>
+     * </code> If <code>doX()</code> does not throw a <code>Throwable</code>, then a
+     * {@link ThrowableNotThrownAssertionError} is thrown. Otherwise the thrown throwable can be retrieved via
+     * {@link #caughtThrowable()}.
      *
-     * If <code>doX()</code> does not throw a <code>Throwable</code>, then a {@link ThrowableNotThrownAssertionError} is
-     * thrown. Otherwise the thrown throwable can be retrieved via {@link #caughtThrowable()}.
-     *
-     *
-     * @param actor The instance that shall be proxied. Must not be <code>null</code>.
+     * @param actor
+     *            The instance that shall be proxied. Must not be <code>null</code>.
      */
     public static void verifyThrowable(ThrowingCallable actor) {
         verifyThrowable(actor, Throwable.class);
@@ -61,20 +60,17 @@ public class CatchThrowable {
 
     /**
      * Use it to verify that an throwable of specific type is thrown and to get access to the thrown throwable (for
-     * further verifications).
-     *
-     * The following example verifies that obj.doX() throws a MyThrowable:
+     * further verifications). The following example verifies that obj.doX() throws a MyThrowable:
      * <code>verifyThrowable(obj, MyThrowable.class).doX(); // catch and verify
      * assert "foobar".equals(caughtThrowable().getMessage()); // further analysis
-     * </code>
+     * </code> If <code>doX()</code> does not throw a <code>MyThrowable</code>, then a
+     * {@link ThrowableNotThrownAssertionError} is thrown. Otherwise the thrown throwable can be retrieved via
+     * {@link #caughtThrowable()}.
      *
-     * If <code>doX()</code> does not throw a <code>MyThrowable</code>, then a {@link ThrowableNotThrownAssertionError}
-     * is thrown. Otherwise the thrown throwable can be retrieved via {@link #caughtThrowable()}.
-     *
-     *
-     * @param actor   The instance that shall be proxied. Must not be <code>null</code>.
-     * @param clazz The type of the throwable that shall be thrown by the underlying object. Must not be
-     *              <code>null</code>
+     * @param actor
+     *            The instance that shall be proxied. Must not be <code>null</code>.
+     * @param clazz
+     *            The type of the throwable that shall be thrown by the underlying object. Must not be <code>null</code>
      */
     public static void verifyThrowable(ThrowingCallable actor, Class<? extends Throwable> clazz) {
         validateArguments(actor, clazz);
@@ -82,18 +78,16 @@ public class CatchThrowable {
     }
 
     /**
-     * Use it to catch an throwable and to get access to the thrown throwable (for further verifications).
-     *
-     * In the following example you catch throwables that are thrown by obj.doX():
-     * <code>catchThrowable(obj).doX(); // catch
+     * Use it to catch an throwable and to get access to the thrown throwable (for further verifications). In the
+     * following example you catch throwables that are thrown by obj.doX(): <code>catchThrowable(obj).doX(); // catch
      * if (caughtThrowable() != null) {
      * assert "foobar".equals(caughtThrowable().getMessage()); // further analysis
-     * }</code> If <code>doX()</code>
-     * throws a throwable, then {@link #caughtThrowable()} will return the caught throwable. If <code>doX()</code> does
-     * not throw a throwable, then {@link #caughtThrowable()} will return <code>null</code>.
+     * }</code> If <code>doX()</code> throws a throwable, then {@link #caughtThrowable()} will return the caught
+     * throwable. If <code>doX()</code> does not throw a throwable, then {@link #caughtThrowable()} will return
+     * <code>null</code>.
      *
-     *
-     * @param actor The instance that shall be proxied. Must not be <code>null</code>.
+     * @param actor
+     *            The instance that shall be proxied. Must not be <code>null</code>.
      */
     public static void catchThrowable(ThrowingCallable actor) {
         validateArguments(actor, Throwable.class);
@@ -102,29 +96,28 @@ public class CatchThrowable {
 
     /**
      * Use it to catch an throwable of a specific type and to get access to the thrown throwable (for further
-     * verifications).
-     *
-     * In the following example you catch throwables of type MyThrowable that are thrown by obj.doX():
+     * verifications). In the following example you catch throwables of type MyThrowable that are thrown by obj.doX():
      * <code>catchThrowable(obj, MyThrowable.class).doX(); // catch
      * if (caughtThrowable() != null) {
      * assert "foobar".equals(caughtThrowable().getMessage()); // further analysis
-     * }</code> If <code>doX()</code>
-     * throws a <code>MyThrowable</code>, then {@link #caughtThrowable()} will return the caught throwable. If
-     * <code>doX()</code> does not throw a <code>MyThrowable</code>, then {@link #caughtThrowable()} will return
-     * <code>null</code>. If <code>doX()</code> throws an throwable of another type, i.e. not a subclass but another
-     * class, then this throwable is not thrown and {@link #caughtThrowable()} will return <code>null</code>.
+     * }</code> If <code>doX()</code> throws a <code>MyThrowable</code>, then {@link #caughtThrowable()} will return the
+     * caught throwable. If <code>doX()</code> does not throw a <code>MyThrowable</code>, then
+     * {@link #caughtThrowable()} will return <code>null</code>. If <code>doX()</code> throws an throwable of another
+     * type, i.e. not a subclass but another class, then this throwable is not thrown and {@link #caughtThrowable()}
+     * will return <code>null</code>.
      *
-     *
-     * @param actor   The instance that shall be proxied. Must not be <code>null</code>.
-     * @param clazz The type of the throwable that shall be caught. Must not be <code>null</code>.
+     * @param actor
+     *            The instance that shall be proxied. Must not be <code>null</code>.
+     * @param clazz
+     *            The type of the throwable that shall be caught. Must not be <code>null</code>.
      */
     public static void catchThrowable(ThrowingCallable actor, Class<? extends Throwable> clazz) {
         validateArguments(actor, clazz);
         catchThrowable(actor, clazz, false);
     }
 
-    private static void catchThrowable(ThrowingCallable actor,
-                                       Class<? extends Throwable> clazz, boolean assertException) {
+    private static void catchThrowable(ThrowingCallable actor, Class<? extends Throwable> clazz,
+            boolean assertException) {
         resetCaughtThrowable();
         Throwable throwable = ThrowableCaptor.captureThrowable(actor);
         if (throwable == null) {
@@ -147,17 +140,17 @@ public class CatchThrowable {
     }
 
     private static void validateArguments(ThrowingCallable actor, Class<? extends Throwable> clazz) {
-        if (actor == null) throw new IllegalArgumentException("obj must not be null");
-        if (clazz == null) throw new IllegalArgumentException("throwableClazz must not be null");
+        if (actor == null)
+            throw new IllegalArgumentException("obj must not be null");
+        if (clazz == null)
+            throw new IllegalArgumentException("throwableClazz must not be null");
     }
 
     /**
      * Sets the {@link #caughtThrowable() caught throwable} to null. This does not affect throwables saved at threads
-     * other than the current one.
-     *
-     * Actually you probably never need to call this method because each method call on a proxied object in the current
-     * thread resets the caught throwable. But if you want to improve test isolation or if you want to 'clean up' after
-     * testing (to avoid memory leaks), call the method before or after testing.
+     * other than the current one. Actually you probably never need to call this method because each method call on a
+     * proxied object in the current thread resets the caught throwable. But if you want to improve test isolation or if
+     * you want to 'clean up' after testing (to avoid memory leaks), call the method before or after testing.
      */
     public static void resetCaughtThrowable() {
         ThrowableHolder.set(null);
