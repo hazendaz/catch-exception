@@ -2,8 +2,14 @@
 
 Catch and verify exceptions in a single line of code
 
-[![Build Status](https://travis-ci.org/Codearte/catch-exception.svg)](https://travis-ci.org/Codearte/catch-exception) [![Coverage Status](https://img.shields.io/coveralls/Codearte/catch-exception.svg)](https://coveralls.io/r/Codearte/catch-exception?branch=master) [![Maven Central](https://maven-badges.herokuapp.com/maven-central/eu.codearte.catch-exception/catch-exception/badge.svg)](https://maven-badges.herokuapp.com/maven-central/eu.codearte.catch-exception/catch-exception) [![Apache 2](http://img.shields.io/badge/license-Apache%202-red.svg)](http://www.apache.org/licenses/LICENSE-2.0)
+[![Java CI](https://github.com/hazendaz/catch-exception/workflows/Java%20CI/badge.svg)](https://github.com/hazendaz/catch-exception/actions?query=workflow%3A%22Java+CI%22)
+[![Coverage Status](https://coveralls.io/repos/hazendaz/catch-exception/badge.svg?branch=master&service=github)](https://coveralls.io/github/hazendaz/catch-exception?branch=master)
+[![Maven central](https://maven-badges.herokuapp.com/maven-central/com.github.hazendaz/catch-exception/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.github.hazendaz/catch-exception)
+[![Apache 2](http://img.shields.io/badge/license-Apache%202-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0)
 
+![hazendaz](src/site/resources/images/hazendaz-banner.jpg)
+
+See site page [here](https://hazendaz.github.io/catch-exception/)
 
 *This is continuation of famous [catch-exception](https://code.google.com/p/catch-exception/) library created
 by Rod Woo*.
