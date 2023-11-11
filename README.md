@@ -3,8 +3,8 @@
 Catch and verify exceptions in a single line of code
 
 [![Java CI](https://github.com/hazendaz/catch-exception/workflows/Java%20CI/badge.svg)](https://github.com/hazendaz/catch-exception/actions?query=workflow%3A%22Java+CI%22)
-[![Coverage Status](https://coveralls.io/repos/hazendaz/catch-exception/badge.svg?branch=master&service=github)](https://coveralls.io/github/hazendaz/catch-exception?branch=master)
-[![Maven central](https://maven-badges.herokuapp.com/maven-central/com.github.hazendaz/catch-exception/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.github.hazendaz/catch-exception)
+[![Coverage Status](https://coveralls.io/repos/hazendaz/catch-exception/badge.svg?branch=master&service=github)](https://coveralls.io/github/hazendaz/catch-exception?branch=master-fork)
+[![Maven central](https://maven-badges.herokuapp.com/maven-central/com.github.hazendaz.catch-exception/catch-exception/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.github.hazendaz.catch-exception/catch-exception)
 [![Apache 2](http://img.shields.io/badge/license-Apache%202-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0)
 
 ![hazendaz](src/site/resources/images/hazendaz-banner.jpg)
