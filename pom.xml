@@ -28,7 +28,7 @@
 
     <groupId>com.github.hazendaz.catch-exception</groupId>
     <artifactId>catch-exception-parent</artifactId>
-    <version>2.3.2-SNAPSHOT</version>
+    <version>2.3.2</version>
     <packaging>pom</packaging>
 
     <name>catch-exception-project</name>
@@ -70,7 +70,7 @@
     <scm>
         <connection>scm:git:ssh://git@github.com/hazendaz/catch-exception.git</connection>
         <developerConnection>scm:git:ssh://git@github.com/hazendaz/catch-exception.git</developerConnection>
-        <tag>HEAD</tag>
+        <tag>catch-exception-parent-2.3.2</tag>
         <url>https://github.com/hazendaz/catch-exception/</url>
     </scm>
     <distributionManagement>
@@ -86,7 +86,7 @@
         <module.name>com.googlecode.catchexception.parent</module.name>
 
         <!-- Reproducible Builds -->
-        <project.build.outputTimestamp>1716847438</project.build.outputTimestamp>
+        <project.build.outputTimestamp>1716848163</project.build.outputTimestamp>
     </properties>
 
     <dependencyManagement>
