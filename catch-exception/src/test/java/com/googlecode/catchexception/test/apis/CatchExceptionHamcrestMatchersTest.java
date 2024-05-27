@@ -1,5 +1,5 @@
 /*
- * Copyright 2011-2023 the original author or authors.
+ * Copyright 2011-2024 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,8 +25,8 @@ import static org.hamcrest.CoreMatchers.containsString;
 import static org.hamcrest.CoreMatchers.instanceOf;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.isA;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThat;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import com.googlecode.catchexception.apis.CatchExceptionHamcrestMatchers;
 import com.googlecode.catchexception.matcher.Find;
@@ -34,22 +34,22 @@ import com.googlecode.catchexception.matcher.Find;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 /**
  * Tests {@link CatchExceptionHamcrestMatchers}.
  */
 @SuppressWarnings("javadoc")
-public class CatchExceptionHamcrestMatchersTest {
+class CatchExceptionHamcrestMatchersTest {
 
     /**
      * The message of the exception thrown by {@code new ArrayList<String>().get(0) } for jdk9on.
      */
     private final String expectedMessageJdk9on = "Index 9 out of bounds for length 9";
 
-    @Before
-    public void setup() {
+    @BeforeEach
+    void setup() {
         List<String> fellowshipOfTheRing = new ArrayList<>();
         // let's do some team building :)
         fellowshipOfTheRing.add("frodo");
@@ -70,7 +70,7 @@ public class CatchExceptionHamcrestMatchersTest {
     private void assertMessage(String foundMessage, String expectedExpectedPart, String expectedGotPart) {
 
         String[] foundParts = foundMessage.split("(?=but:)");
-        assertEquals("split of foundMessage did not work: " + foundMessage, 2, foundParts.length);
+        assertEquals(2, foundParts.length, "split of foundMessage did not work: " + foundMessage);
         String foundExpectedPart = foundParts[0].trim();
         String foundGotPart = foundParts[1].trim();
         assertEquals(expectedExpectedPart, foundExpectedPart);
@@ -78,7 +78,7 @@ public class CatchExceptionHamcrestMatchersTest {
     }
 
     @Test
-    public void testMatcher_instanceOf() {
+    void matcherInstanceOf() {
 
         assertThat(caughtException(), instanceOf(IndexOutOfBoundsException.class));
 
@@ -100,7 +100,7 @@ public class CatchExceptionHamcrestMatchersTest {
     }
 
     @Test
-    public void learningtestMatcher_hasMessage_findRegex() {
+    void learningtestMatcher_hasMessage_findRegex() {
 
         if (!caughtException().getMessage().contains(expectedMessageJdk9on)) {
             assertThat(caughtException(), hasMessageThat(containsPattern("Index: \\d+")));
@@ -115,7 +115,7 @@ public class CatchExceptionHamcrestMatchersTest {
     }
 
     @Test
-    public void testMatcher_hasMessage_equalByString() {
+    void matcherHasMessageEqualByString() {
 
         if (!caughtException().getMessage().contains(expectedMessageJdk9on)) {
             assertThat(caughtException(), hasMessage("Index: 9, Size: 9"));
@@ -133,7 +133,7 @@ public class CatchExceptionHamcrestMatchersTest {
     }
 
     @Test
-    public void testMatcher_hasMessage_equalByStringMatcher() {
+    void matcherHasMessageEqualByStringMatcher() {
 
         if (!caughtException().getMessage().contains(expectedMessageJdk9on)) {
             assertThat(caughtException(), hasMessageThat(is("Index: 9, Size: 9")));
@@ -151,7 +151,7 @@ public class CatchExceptionHamcrestMatchersTest {
     }
 
     @Test
-    public void testMatcher_hasMessage_containsByStringMatcher() {
+    void matcherHasMessageContainsByStringMatcher() {
 
         if (!caughtException().getMessage().contains(expectedMessageJdk9on)) {
             assertThat(caughtException(), hasMessageThat(is(containsString("Index: 9"))));
@@ -169,7 +169,7 @@ public class CatchExceptionHamcrestMatchersTest {
     }
 
     @Test
-    public void testMatcher_hasNoCause() {
+    void matcherHasNoCause() {
 
         assertThat(caughtException(), hasNoCause());
 
@@ -186,7 +186,7 @@ public class CatchExceptionHamcrestMatchersTest {
     }
 
     @Test
-    public void testMatcher_allOf() {
+    void matcherAllOf() {
 
         if (!caughtException().getMessage().contains(expectedMessageJdk9on)) {
             assertThat(caughtException(), allOf( //

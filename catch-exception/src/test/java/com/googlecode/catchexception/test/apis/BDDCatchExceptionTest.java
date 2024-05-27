@@ -1,5 +1,5 @@
 /*
- * Copyright 2011-2023 the original author or authors.
+ * Copyright 2011-2024 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,24 +16,24 @@
 package com.googlecode.catchexception.test.apis;
 
 import static com.googlecode.catchexception.apis.BDDCatchException.caughtException;
-import static com.googlecode.catchexception.apis.BDDCatchException.thenThrown;
 import static com.googlecode.catchexception.apis.BDDCatchException.when;
-import static org.assertj.core.api.BDDAssertions.then;
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import com.googlecode.catchexception.CatchException;
+import com.googlecode.catchexception.apis.BDDCatchException;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import org.junit.Test;
+import org.assertj.core.api.BDDAssertions;
+import org.junit.jupiter.api.Test;
 
 /**
  * Tests {@link com.googlecode.catchexception.apis.BDDCatchException}.
  */
 @SuppressWarnings("javadoc")
-public class BDDCatchExceptionTest {
+class BDDCatchExceptionTest {
 
     /**
      * The message of the exception thrown by {@code new ArrayList<String>().get(0) } for jdk9on.
@@ -47,7 +47,7 @@ public class BDDCatchExceptionTest {
 
     @SuppressWarnings("rawtypes")
     @Test
-    public void testThen() {
+    void then() {
         // given an empty list
         List myList = new ArrayList();
 
@@ -56,20 +56,20 @@ public class BDDCatchExceptionTest {
 
         // then we expect an IndexOutOfBoundsException
         if (!caughtException().getMessage().contains(expectedMessageJdk9on)) {
-            then(caughtException()).isInstanceOf(IndexOutOfBoundsException.class) //
+            BDDAssertions.then(caughtException()).isInstanceOf(IndexOutOfBoundsException.class) //
                     .hasMessage("Index: 1, Size: 0") //
                     .hasNoCause();
         }
 
         // and BDDAssertions....
-        then(Integer.valueOf(2)).isEqualTo(2);
-        then(new Exception()).hasMessage(null);
+        BDDAssertions.then(Integer.valueOf(2)).isEqualTo(2);
+        BDDAssertions.then(new Exception()).hasMessage(null);
 
     }
 
     @SuppressWarnings("rawtypes")
     @Test
-    public void testAssertJThen() {
+    void assertJThen() {
         // given an empty list
         List myList = new ArrayList();
 
@@ -78,19 +78,20 @@ public class BDDCatchExceptionTest {
 
         // then we expect an IndexOutOfBoundsException
         if (!caughtException().getMessage().contains(expectedMessageJdk9on)) {
-            then((Throwable) CatchException.caughtException()).isInstanceOf(IndexOutOfBoundsException.class) //
+            BDDAssertions.then((Throwable) CatchException.caughtException())
+                    .isInstanceOf(IndexOutOfBoundsException.class) //
                     .hasMessage("Index: 1, Size: 0") //
                     .hasNoCause();
         }
 
         // and BDDAssertions....
-        then(Integer.valueOf(2)).isEqualTo(2);
-        then(new Exception()).hasMessage(null);
+        BDDAssertions.then(Integer.valueOf(2)).isEqualTo(2);
+        BDDAssertions.then(new Exception()).hasMessage(null);
     }
 
     @SuppressWarnings("rawtypes")
     @Test
-    public void testThenThrown() {
+    void thenThrown() {
 
         // given a list with nine elements
         List myList = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9);
@@ -99,12 +100,12 @@ public class BDDCatchExceptionTest {
         when(() -> myList.get(500));
 
         // then we expect an IndexOutOfBoundsException
-        thenThrown(IndexOutOfBoundsException.class);
+        BDDCatchException.thenThrown(IndexOutOfBoundsException.class);
 
         // test: caughtException() ==null
         when(() -> myList.get(0));
         try {
-            thenThrown(IndexOutOfBoundsException.class);
+            BDDCatchException.thenThrown(IndexOutOfBoundsException.class);
 
         } catch (AssertionError e) {
             assertEquals("Neither an exception of type java.lang." + "IndexOutOfBoundsException nor another exception "
@@ -114,7 +115,7 @@ public class BDDCatchExceptionTest {
         // test: caughtException() is not IllegalArgumentException
         when(() -> myList.get(500));
         try {
-            thenThrown(IllegalArgumentException.class);
+            BDDCatchException.thenThrown(IllegalArgumentException.class);
 
         } catch (AssertionError e) {
             if (!e.getMessage().contains(expectedMessageJdk9on500)) {

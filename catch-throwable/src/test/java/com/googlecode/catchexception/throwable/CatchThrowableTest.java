@@ -1,5 +1,5 @@
 /*
- * Copyright 2011-2023 the original author or authors.
+ * Copyright 2011-2024 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,23 +18,23 @@ package com.googlecode.catchexception.throwable;
 import static com.googlecode.catchexception.throwable.CatchThrowable.catchThrowable;
 import static com.googlecode.catchexception.throwable.CatchThrowable.caughtThrowable;
 import static com.googlecode.catchexception.throwable.CatchThrowable.verifyThrowable;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
 
 import java.net.HttpRetryException;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 /**
  * Tests {@link CatchThrowable}.
  */
 @SuppressWarnings("javadoc")
-public class CatchThrowableTest {
+class CatchThrowableTest {
 
     private final List<String> list = new ArrayList<>();
 
@@ -48,21 +48,21 @@ public class CatchThrowableTest {
      */
     private final String expectedMessageJdk9on = "Index 0 out of bounds for length 0";
 
-    @Before
-    public void setUp() {
+    @BeforeEach
+    void setUp() {
         // set any exception so that we have clear state before the test
         ThrowableHolder.set(new HttpRetryException("detail", 0));
     }
 
     @Test
-    public void testCatchException_ObjExc_noExceptionThrown() {
+    void catchExceptionObjExcNoExceptionThrown() {
 
         catchThrowable(list::size, IndexOutOfBoundsException.class);
         assertNull(caughtThrowable());
     }
 
     @Test
-    public void testCatchException_throwError() {
+    void catchExceptionThrowError() {
 
         catchThrowable(() -> {
             throw new Error("ddd");
@@ -71,7 +71,7 @@ public class CatchThrowableTest {
     }
 
     @Test
-    public void testCatchException_ObjExc_actualClassThrown() {
+    void catchExceptionObjExcActualClassThrown() {
 
         // test for actual class
         catchThrowable(() -> list.get(0), IndexOutOfBoundsException.class);
@@ -81,7 +81,7 @@ public class CatchThrowableTest {
     }
 
     @Test
-    public void testCatchException_ObjExc_subClassOfExpectedThrown() {
+    void catchExceptionObjExcSubClassOfExpectedThrown() {
 
         // test for super class
         catchThrowable(() -> list.get(0), RuntimeException.class);
@@ -91,7 +91,7 @@ public class CatchThrowableTest {
     }
 
     @Test
-    public void testCatchException_ObjExc_superClassOfExpectedThrown() {
+    void catchExceptionObjExcSuperClassOfExpectedThrown() {
 
         try {
             catchThrowable(() -> list.get(0), ArrayIndexOutOfBoundsException.class);
@@ -102,7 +102,7 @@ public class CatchThrowableTest {
     }
 
     @Test
-    public void testCatchException_ObjExc_otherClassThanExpectedThrown() {
+    void catchExceptionObjExcOtherClassThanExpectedThrown() {
 
         try {
             catchThrowable(() -> list.get(0), IllegalArgumentException.class);
@@ -113,7 +113,7 @@ public class CatchThrowableTest {
     }
 
     @Test
-    public void testCatchException_ObjExc_missingArgument_Exception() {
+    void catchExceptionObjExcMissingArgumentException() {
 
         // test validation of the arguments
         try {
@@ -125,7 +125,7 @@ public class CatchThrowableTest {
     }
 
     @Test
-    public void testCatchException_ObjExc_missingArgument_Object() {
+    void catchExceptionObjExcMissingArgumentObject() {
 
         try {
             catchThrowable(null, IllegalArgumentException.class);
@@ -136,7 +136,7 @@ public class CatchThrowableTest {
     }
 
     @Test
-    public void testverifyThrowable_ObjExc_noExceptionThrown() {
+    void testverifyThrowable_ObjExc_noExceptionThrown() {
 
         try {
             verifyThrowable(list::size, IndexOutOfBoundsException.class);
@@ -150,7 +150,7 @@ public class CatchThrowableTest {
     }
 
     @Test
-    public void testverifyThrowable_ObjExc_actualClassThrown() {
+    void testverifyThrowable_ObjExc_actualClassThrown() {
 
         // test for actual class
         verifyThrowable(() -> list.get(0), IndexOutOfBoundsException.class);
@@ -160,7 +160,7 @@ public class CatchThrowableTest {
     }
 
     @Test
-    public void testverifyThrowable_ObjExc_subClassOfExpectedThrown() {
+    void testverifyThrowable_ObjExc_subClassOfExpectedThrown() {
 
         // test for super class
         verifyThrowable(() -> list.get(0), RuntimeException.class);
@@ -170,7 +170,7 @@ public class CatchThrowableTest {
     }
 
     @Test
-    public void testverifyThrowable_ObjExc_superClassOfExpectedThrown() {
+    void testverifyThrowable_ObjExc_superClassOfExpectedThrown() {
 
         // test for sub class
         try {
@@ -188,7 +188,7 @@ public class CatchThrowableTest {
     }
 
     @Test
-    public void testverifyThrowable_ObjExc_otherClassThanExpectedThrown() {
+    void testverifyThrowable_ObjExc_otherClassThanExpectedThrown() {
 
         // test for other exception type
         try {
@@ -207,7 +207,7 @@ public class CatchThrowableTest {
     }
 
     @Test
-    public void testverifyThrowable_ObjExc_missingArgument_Exception() {
+    void testverifyThrowable_ObjExc_missingArgument_Exception() {
 
         // test validation of the arguments
         try {
@@ -219,7 +219,7 @@ public class CatchThrowableTest {
     }
 
     @Test
-    public void testverifyThrowable_ObjExc_missingArgument_Object() {
+    void testverifyThrowable_ObjExc_missingArgument_Object() {
 
         try {
             verifyThrowable(null, IllegalArgumentException.class);
@@ -230,7 +230,7 @@ public class CatchThrowableTest {
     }
 
     @Test
-    public void testverifyThrowable_Obj_noExceptionThrown() {
+    void testverifyThrowable_Obj_noExceptionThrown() {
 
         List<String> list = new ArrayList<>();
 
@@ -245,7 +245,7 @@ public class CatchThrowableTest {
     }
 
     @Test
-    public void testverifyThrowable_Obj_exceptionThrown() {
+    void testverifyThrowable_Obj_exceptionThrown() {
 
         List<String> list = new ArrayList<>();
 
@@ -256,7 +256,7 @@ public class CatchThrowableTest {
     }
 
     @Test
-    public void testverifyThrowable_Obj_missingArgument_Object() {
+    void testverifyThrowable_Obj_missingArgument_Object() {
 
         // test validation of the arguments
         try {
@@ -268,7 +268,7 @@ public class CatchThrowableTest {
     }
 
     @Test
-    public void testCatchException_Obj_noExceptionThrown() {
+    void catchExceptionObjNoExceptionThrown() {
 
         List<String> list = new ArrayList<>();
 
@@ -278,7 +278,7 @@ public class CatchThrowableTest {
     }
 
     @Test
-    public void testCatchException_Obj_exceptionThrown() {
+    void catchExceptionObjExceptionThrown() {
 
         List<String> list = new ArrayList<>();
 
@@ -289,7 +289,7 @@ public class CatchThrowableTest {
     }
 
     @Test
-    public void testCatchException_Obj_missingArgument_Object() {
+    void catchExceptionObjMissingArgumentObject() {
 
         // test validation of the arguments
         try {
@@ -301,7 +301,7 @@ public class CatchThrowableTest {
     }
 
     @Test
-    public void testProtected() {
+    void testProtected() {
         PublicSomethingImpl obj = new PublicSomethingImpl();
         catchThrowable(obj::dooo);
         assertTrue(caughtThrowable() instanceof MyThrowable);

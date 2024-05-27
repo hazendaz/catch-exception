@@ -1,5 +1,5 @@
 /*
- * Copyright 2011-2023 the original author or authors.
+ * Copyright 2011-2024 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,16 +21,16 @@ import static com.googlecode.catchexception.test.apis.MyExceptionCustomAssertion
 
 import com.googlecode.catchexception.MyException;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 /**
  * Tests custom exception assertions.
  */
 @SuppressWarnings("javadoc")
-public class BDDCustomCatchExceptionTest {
+class BDDCustomCatchExceptionTest {
 
     @Test
-	public void testCustomException() throws Exception {
+    void customException() throws Exception {
 
 		when(this::throwMyException);
 		then(caughtException()).hasErrorCode(500);

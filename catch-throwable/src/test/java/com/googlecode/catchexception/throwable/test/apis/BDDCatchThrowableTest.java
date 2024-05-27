@@ -1,5 +1,5 @@
 /*
- * Copyright 2011-2023 the original author or authors.
+ * Copyright 2011-2024 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,22 +16,23 @@
 package com.googlecode.catchexception.throwable.test.apis;
 
 import static com.googlecode.catchexception.throwable.apis.BDDCatchThrowable.caughtThrowable;
-import static com.googlecode.catchexception.throwable.apis.BDDCatchThrowable.thenThrown;
 import static com.googlecode.catchexception.throwable.apis.BDDCatchThrowable.when;
-import static org.assertj.core.api.BDDAssertions.then;
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import com.googlecode.catchexception.throwable.apis.BDDCatchThrowable;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import org.junit.Test;
+import org.assertj.core.api.BDDAssertions;
+import org.junit.jupiter.api.Test;
 
 /**
  * Tests {@link com.googlecode.catchexception.throwable.apis.BDDCatchThrowable}.
  */
 @SuppressWarnings("javadoc")
-public class BDDCatchThrowableTest {
+class BDDCatchThrowableTest {
 
     /**
      * The message of the exception thrown by {@code new ArrayList<String>().get(0) } for jdk9on.
@@ -45,7 +46,7 @@ public class BDDCatchThrowableTest {
 
     @SuppressWarnings("rawtypes")
     @Test
-    public void testThen() {
+    void then() {
         // given an empty list
         List myList = new ArrayList();
 
@@ -54,7 +55,7 @@ public class BDDCatchThrowableTest {
 
         // then we expect an IndexOutOfBoundsException
         if (!caughtThrowable().getMessage().contains(expectedMessageJdk9on)) {
-            then(caughtThrowable()) //
+            BDDAssertions.then(caughtThrowable()) //
                     .isInstanceOf(IndexOutOfBoundsException.class) //
                     .hasMessage("Index: 1, Size: 0") //
                     .hasNoCause();
@@ -64,7 +65,7 @@ public class BDDCatchThrowableTest {
 
     @SuppressWarnings("rawtypes")
     @Test
-    public void testAssertJThen() {
+    void assertJThen() {
         // given an empty list
         List myList = new ArrayList();
 
@@ -73,7 +74,7 @@ public class BDDCatchThrowableTest {
 
         // then we expect an IndexOutOfBoundsException
         if (!caughtThrowable().getMessage().contains(expectedMessageJdk9on)) {
-            then(caughtThrowable()).isInstanceOf(IndexOutOfBoundsException.class) //
+            BDDAssertions.then(caughtThrowable()).isInstanceOf(IndexOutOfBoundsException.class) //
                     .hasMessage("Index: 1, Size: 0") //
                     .hasNoCause();
         }
@@ -82,7 +83,7 @@ public class BDDCatchThrowableTest {
 
     @SuppressWarnings("rawtypes")
     @Test
-    public void testThenThrown() {
+    void thenThrown() {
 
         // given a list with nine elements
         List myList = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9);
@@ -91,12 +92,12 @@ public class BDDCatchThrowableTest {
         when(() -> myList.get(500));
 
         // then we expect an IndexOutOfBoundsException
-        thenThrown(IndexOutOfBoundsException.class);
+        BDDCatchThrowable.thenThrown(IndexOutOfBoundsException.class);
 
         // test: caughtThrowable() ==null
         when(() -> myList.get(0));
         try {
-            thenThrown(IndexOutOfBoundsException.class);
+            BDDCatchThrowable.thenThrown(IndexOutOfBoundsException.class);
 
         } catch (AssertionError e) {
             assertEquals("Neither a throwable of type java.lang." + "IndexOutOfBoundsException nor another throwable "
@@ -106,7 +107,7 @@ public class BDDCatchThrowableTest {
         // test: caughtThrowable() is not IllegalArgumentException
         when(() -> myList.get(500));
         try {
-            thenThrown(IllegalArgumentException.class);
+            BDDCatchThrowable.thenThrown(IllegalArgumentException.class);
 
         } catch (AssertionError e) {
             if (!e.getMessage().contains(expectedMessageJdk9on500)) {

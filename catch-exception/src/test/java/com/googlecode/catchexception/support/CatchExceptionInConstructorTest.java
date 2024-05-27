@@ -1,5 +1,5 @@
 /*
- * Copyright 2011-2023 the original author or authors.
+ * Copyright 2011-2024 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,13 +19,13 @@ import static com.googlecode.catchexception.CatchException.verifyException;
 
 import java.util.function.Supplier;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 /**
  * Demonstrates how to catch exceptions that are thrown by constructors.
  */
 @SuppressWarnings("javadoc")
-public class CatchExceptionInConstructorTest {
+class CatchExceptionInConstructorTest {
 
     private static class Thing {
 
@@ -35,7 +35,7 @@ public class CatchExceptionInConstructorTest {
     }
 
     @Test
-    public void testExceptionThrownInConstructor() throws Exception {
+    void exceptionThrownInConstructor() throws Exception {
 
         Supplier<Thing> builder = () -> new Thing("baddata");
         verifyException(builder::get, IllegalArgumentException.class);
