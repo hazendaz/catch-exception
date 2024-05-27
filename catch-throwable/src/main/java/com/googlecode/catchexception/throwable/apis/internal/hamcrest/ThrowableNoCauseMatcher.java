@@ -29,10 +29,11 @@ public class ThrowableNoCauseMatcher<T extends Throwable> extends BaseMatcher<T>
 
     @Override
     public boolean matches(Object obj) {
-        if (!(obj instanceof Throwable))
+        if (!(obj instanceof Throwable)) {
             return false;
+        }
 
-        Throwable throwable = (Throwable) obj;
+        var throwable = (Throwable) obj;
 
         return throwable.getCause() == null;
     }

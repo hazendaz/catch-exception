@@ -67,10 +67,10 @@ class CatchExceptionHamcrestMatchersTest {
 
     private void assertMessage(String foundMessage, String expectedExpectedPart, String expectedGotPart) {
 
-        String[] foundParts = foundMessage.split("(?=but:)");
+        var foundParts = foundMessage.split("(?=but:)");
         assertEquals(2, foundParts.length, "split of foundMessage did not work: " + foundMessage);
-        String foundExpectedPart = foundParts[0].trim();
-        String foundGotPart = foundParts[1].trim();
+        var foundExpectedPart = foundParts[0].trim();
+        var foundGotPart = foundParts[1].trim();
         assertEquals(expectedExpectedPart, foundExpectedPart);
         assertEquals(expectedGotPart, foundGotPart);
     }

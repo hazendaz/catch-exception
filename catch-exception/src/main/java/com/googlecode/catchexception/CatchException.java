@@ -232,31 +232,30 @@ public final class CatchException {
     private static void catchException(ThrowingCallable actor, Class<? extends Exception> clazz,
             boolean assertException) {
         resetCaughtException();
-        Exception exception = ExceptionCaptor.captureThrowable(actor);
+        var exception = ExceptionCaptor.captureThrowable(actor);
         if (exception == null) {
             if (!assertException) {
                 return;
-            } else {
-                throw new ExceptionNotThrownAssertionError(clazz);
             }
+            throw new ExceptionNotThrownAssertionError(clazz);
         }
         // is the thrown exception of the expected type?
         if (clazz.isAssignableFrom(exception.getClass())) {
             ExceptionHolder.set(exception);
+        } else if (assertException) {
+            throw new ExceptionNotThrownAssertionError(clazz, exception);
         } else {
-            if (assertException) {
-                throw new ExceptionNotThrownAssertionError(clazz, exception);
-            } else {
-                ExceptionUtil.sneakyThrow(exception);
-            }
+            ExceptionUtil.sneakyThrow(exception);
         }
     }
 
     private static void validateArguments(ThrowingCallable actor, Class<? extends Exception> clazz) {
-        if (actor == null)
+        if (actor == null) {
             throw new IllegalArgumentException("obj must not be null");
-        if (clazz == null)
+        }
+        if (clazz == null) {
             throw new IllegalArgumentException("exceptionClazz must not be null");
+        }
     }
 
     /**

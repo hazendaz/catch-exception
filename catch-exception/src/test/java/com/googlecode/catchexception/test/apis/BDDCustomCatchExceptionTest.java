@@ -15,9 +15,9 @@
  */
 package com.googlecode.catchexception.test.apis;
 
+import static com.googlecode.catchexception.apis.BDDCatchException.when;
 import static com.googlecode.catchexception.test.apis.MyExceptionCustomAssertions.caughtException;
 import static com.googlecode.catchexception.test.apis.MyExceptionCustomAssertions.then;
-import static com.googlecode.catchexception.test.apis.MyExceptionCustomAssertions.when;
 
 import com.googlecode.catchexception.MyException;
 
@@ -32,9 +32,9 @@ class BDDCustomCatchExceptionTest {
     @Test
     void customException() throws Exception {
 
-		when(this::throwMyException);
-		then(caughtException()).hasErrorCode(500);
-	}
+        when(this::throwMyException);
+        then(caughtException()).hasErrorCode(500);
+    }
 
     private void throwMyException() {
         throw new MyException(500);

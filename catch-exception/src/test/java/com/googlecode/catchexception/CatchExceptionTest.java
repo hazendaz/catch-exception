@@ -292,7 +292,7 @@ class CatchExceptionTest {
 
     @Test
     void testProtected() {
-        PublicSomethingImpl obj = new PublicSomethingImpl();
+        var obj = new PublicSomethingImpl();
         catchException(obj::dooo);
         assertTrue(caughtException() instanceof MyException);
     }

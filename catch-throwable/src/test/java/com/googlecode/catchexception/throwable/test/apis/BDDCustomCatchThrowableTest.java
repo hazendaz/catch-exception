@@ -15,9 +15,9 @@
  */
 package com.googlecode.catchexception.throwable.test.apis;
 
+import static com.googlecode.catchexception.throwable.apis.BDDCatchThrowable.when;
 import static com.googlecode.catchexception.throwable.test.apis.MyThrowableCustomAssertions.caughtThrowable;
 import static com.googlecode.catchexception.throwable.test.apis.MyThrowableCustomAssertions.then;
-import static com.googlecode.catchexception.throwable.test.apis.MyThrowableCustomAssertions.when;
 
 import com.googlecode.catchexception.throwable.MyThrowable;
 

@@ -38,7 +38,6 @@ public class ExceptionMessageMatcher<T extends Exception> extends BaseMatcher<T>
      *            the expected exception message
      */
     public ExceptionMessageMatcher(String expectedMessage) {
-        super();
         this.expectedMessageMatcher = CoreMatchers.is(expectedMessage);
     }
 
@@ -47,19 +46,18 @@ public class ExceptionMessageMatcher<T extends Exception> extends BaseMatcher<T>
      *            a string matcher that shall match the exception message
      */
     public ExceptionMessageMatcher(Matcher<String> expectedMessageMatcher) {
-        super();
-
         this.expectedMessageMatcher = expectedMessageMatcher;
     }
 
     @Override
     public boolean matches(Object obj) {
-        if (!(obj instanceof Exception))
+        if (!(obj instanceof Exception)) {
             return false;
+        }
 
-        Exception exception = (Exception) obj;
+        var exception = (Exception) obj;
 
-        String foundMessage = exception.getMessage();
+        var foundMessage = exception.getMessage();
 
         return expectedMessageMatcher.matches(foundMessage);
     }

@@ -29,10 +29,11 @@ public class ExceptionNoCauseMatcher<T extends Exception> extends BaseMatcher<T>
 
     @Override
     public boolean matches(Object obj) {
-        if (!(obj instanceof Exception))
+        if (!(obj instanceof Exception)) {
             return false;
+        }
 
-        Exception exception = (Exception) obj;
+        var exception = (Exception) obj;
 
         return exception.getCause() == null;
     }

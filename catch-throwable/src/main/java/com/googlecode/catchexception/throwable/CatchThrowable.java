@@ -134,31 +134,30 @@ public final class CatchThrowable {
     private static void catchThrowable(ThrowingCallable actor, Class<? extends Throwable> clazz,
             boolean assertException) {
         resetCaughtThrowable();
-        Throwable throwable = ThrowableCaptor.captureThrowable(actor);
+        var throwable = ThrowableCaptor.captureThrowable(actor);
         if (throwable == null) {
             if (!assertException) {
                 return;
-            } else {
-                throw new ThrowableNotThrownAssertionError(clazz);
             }
+            throw new ThrowableNotThrownAssertionError(clazz);
         }
         // is the thrown exception of the expected type?
         if (clazz.isAssignableFrom(throwable.getClass())) {
             ThrowableHolder.set(throwable);
+        } else if (assertException) {
+            throw new ThrowableNotThrownAssertionError(clazz, throwable);
         } else {
-            if (assertException) {
-                throw new ThrowableNotThrownAssertionError(clazz, throwable);
-            } else {
-                ExceptionUtil.sneakyThrow(throwable);
-            }
+            ExceptionUtil.sneakyThrow(throwable);
         }
     }
 
     private static void validateArguments(ThrowingCallable actor, Class<? extends Throwable> clazz) {
-        if (actor == null)
+        if (actor == null) {
             throw new IllegalArgumentException("obj must not be null");
-        if (clazz == null)
+        }
+        if (clazz == null) {
             throw new IllegalArgumentException("throwableClazz must not be null");
+        }
     }
 
     /**

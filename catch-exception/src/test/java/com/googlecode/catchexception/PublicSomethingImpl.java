@@ -18,10 +18,6 @@ package com.googlecode.catchexception;
 @SuppressWarnings("javadoc")
 public class PublicSomethingImpl implements Something {
 
-    public PublicSomethingImpl() {
-        super();
-    }
-
     @Override
     public void doNothing() {
         // Do nothing

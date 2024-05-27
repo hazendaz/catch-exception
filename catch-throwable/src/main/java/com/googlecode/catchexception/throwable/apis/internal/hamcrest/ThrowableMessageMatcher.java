@@ -38,7 +38,6 @@ public class ThrowableMessageMatcher<T extends Throwable> extends BaseMatcher<T>
      *            the expected throwable message
      */
     public ThrowableMessageMatcher(String expectedMessage) {
-        super();
         this.expectedMessageMatcher = CoreMatchers.is(expectedMessage);
     }
 
@@ -47,19 +46,18 @@ public class ThrowableMessageMatcher<T extends Throwable> extends BaseMatcher<T>
      *            a string matcher that shall match the throwable message
      */
     public ThrowableMessageMatcher(Matcher<String> expectedMessageMatcher) {
-        super();
-
         this.expectedMessageMatcher = expectedMessageMatcher;
     }
 
     @Override
     public boolean matches(Object obj) {
-        if (!(obj instanceof Throwable))
+        if (!(obj instanceof Throwable)) {
             return false;
+        }
 
-        Throwable throwable = (Throwable) obj;
+        var throwable = (Throwable) obj;
 
-        String foundMessage = throwable.getMessage();
+        var foundMessage = throwable.getMessage();
 
         return expectedMessageMatcher.matches(foundMessage);
     }

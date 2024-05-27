@@ -29,11 +29,12 @@ final class CatchExceptionUtils {
 
     @SuppressWarnings({ "rawtypes", "unchecked" })
     public static void thenThrown(Class actualExceptionClazz) {
-        Exception e = CatchException.caughtException();
+        var e = CatchException.caughtException();
         if (e == null) {
             // no exception caught -> assertion failed
             throw new ExceptionNotThrownAssertionError(actualExceptionClazz);
-        } else if (!actualExceptionClazz.isAssignableFrom(CatchException.caughtException().getClass())) {
+        }
+        if (!actualExceptionClazz.isAssignableFrom(CatchException.caughtException().getClass())) {
             // caught exception is of wrong type -> assertion failed
             throw new ExceptionNotThrownAssertionError(actualExceptionClazz, e);
         } else {

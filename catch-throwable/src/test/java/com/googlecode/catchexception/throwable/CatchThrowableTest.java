@@ -302,7 +302,7 @@ class CatchThrowableTest {
 
     @Test
     void testProtected() {
-        PublicSomethingImpl obj = new PublicSomethingImpl();
+        var obj = new PublicSomethingImpl();
         catchThrowable(obj::dooo);
         assertTrue(caughtThrowable() instanceof MyThrowable);
     }
