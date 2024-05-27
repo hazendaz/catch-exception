@@ -37,8 +37,6 @@ final class CatchThrowableUtils {
         if (!actualThrowableClazz.isAssignableFrom(CatchThrowable.caughtThrowable().getClass())) {
             // caught throwable is of wrong type -> assertion failed
             throw new ThrowableNotThrownAssertionError(actualThrowableClazz, e);
-        } else {
-            // the caught throwable is of the expected type -> nothing to do :-)
         }
     }
 

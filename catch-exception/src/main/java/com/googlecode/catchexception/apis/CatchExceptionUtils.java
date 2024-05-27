@@ -37,8 +37,6 @@ final class CatchExceptionUtils {
         if (!actualExceptionClazz.isAssignableFrom(CatchException.caughtException().getClass())) {
             // caught exception is of wrong type -> assertion failed
             throw new ExceptionNotThrownAssertionError(actualExceptionClazz, e);
-        } else {
-            // the caught exception is of the expected type -> nothing to do :-)
         }
     }
 }
