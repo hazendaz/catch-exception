@@ -48,4 +48,5 @@ final class CatchExceptionUtils {
             throw new ExceptionNotThrownAssertionError(actualExceptionClazz, e);
         }
     }
+
 }

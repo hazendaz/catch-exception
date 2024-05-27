@@ -51,4 +51,5 @@ public class MyException extends RuntimeException {
     public int getErrorCode() {
         return errorCode;
     }
+
 }

@@ -35,7 +35,6 @@ class BDDCustomCatchExceptionTest {
      */
     @Test
     void customException() throws Exception {
-
         when(this::throwMyException);
         then(caughtException()).hasErrorCode(500);
     }

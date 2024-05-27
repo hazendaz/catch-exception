@@ -47,4 +47,5 @@ class BDDCustomCatchThrowableTest {
     private void throwMyThrowable() {
         throw new MyThrowable(500);
     }
+
 }

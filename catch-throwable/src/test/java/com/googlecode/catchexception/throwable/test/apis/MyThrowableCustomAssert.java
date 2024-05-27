@@ -50,4 +50,5 @@ public class MyThrowableCustomAssert extends AbstractThrowableAssert<MyThrowable
         }
         return this;
     }
+
 }

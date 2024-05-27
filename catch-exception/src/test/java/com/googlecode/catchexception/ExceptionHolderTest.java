@@ -29,8 +29,8 @@ class ExceptionHolderTest {
      */
     @Test
     void caughtExceptionIsNull() {
-
         ExceptionHolder.set(null);
         assertNull(ExceptionHolder.get());
     }
+
 }

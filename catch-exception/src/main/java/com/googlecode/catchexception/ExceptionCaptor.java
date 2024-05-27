@@ -45,7 +45,7 @@ final class ExceptionCaptor {
         } catch (Throwable throwable) {
             throw new IllegalArgumentException(
                     "Throwable is not supported by CatchException library, " + "use CatchThrowable instead");
-
         }
     }
+
 }

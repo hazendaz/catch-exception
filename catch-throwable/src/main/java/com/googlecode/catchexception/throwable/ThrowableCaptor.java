@@ -44,4 +44,5 @@ final class ThrowableCaptor {
             return caught;
         }
     }
+
 }

@@ -44,4 +44,5 @@ public class MyThrowable extends RuntimeException {
     public int getErrorCode() {
         return errorCode;
     }
+
 }
