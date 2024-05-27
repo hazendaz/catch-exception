@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.googlecode.catchexception.test.apis;
+package com.googlecode.catchexception.apis;
 
 import static com.googlecode.catchexception.CatchException.catchException;
 import static com.googlecode.catchexception.CatchException.caughtException;
@@ -28,7 +28,6 @@ import static org.hamcrest.CoreMatchers.isA;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import com.googlecode.catchexception.apis.CatchExceptionHamcrestMatchers;
 import com.googlecode.catchexception.matcher.Find;
 
 import java.util.ArrayList;

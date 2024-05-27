@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.googlecode.catchexception.test.apis;
+package com.googlecode.catchexception.apis;
 
 import com.googlecode.catchexception.MyException;
 

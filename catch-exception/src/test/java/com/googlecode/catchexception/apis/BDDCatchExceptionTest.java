@@ -13,14 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.googlecode.catchexception.test.apis;
+package com.googlecode.catchexception.apis;
 
 import static com.googlecode.catchexception.apis.BDDCatchException.caughtException;
 import static com.googlecode.catchexception.apis.BDDCatchException.when;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import com.googlecode.catchexception.CatchException;
-import com.googlecode.catchexception.apis.BDDCatchException;
 
 import java.util.ArrayList;
 import java.util.Arrays;

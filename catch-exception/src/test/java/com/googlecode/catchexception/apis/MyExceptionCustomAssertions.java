@@ -13,37 +13,35 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.googlecode.catchexception.test.apis;
-
-import static com.googlecode.catchexception.apis.BDDCatchException.when;
-import static com.googlecode.catchexception.test.apis.MyExceptionCustomAssertions.caughtException;
-import static com.googlecode.catchexception.test.apis.MyExceptionCustomAssertions.then;
+package com.googlecode.catchexception.apis;
 
 import com.googlecode.catchexception.MyException;
 
-import org.junit.jupiter.api.Test;
-
 /**
- * Tests custom exception assertions.
+ * The Class MyExceptionCustomAssertions.
  */
-class BDDCustomCatchExceptionTest {
+public class MyExceptionCustomAssertions extends BDDCatchException {
 
     /**
-     * Custom exception.
+     * Then.
      *
-     * @throws Exception the exception
+     * @param actual
+     *            the actual
+     *
+     * @return the my exception custom assert
      */
-    @Test
-    void customException() throws Exception {
-        when(this::throwMyException);
-        then(caughtException()).hasErrorCode(500);
+    public static MyExceptionCustomAssert then(MyException actual) {
+        return new MyExceptionCustomAssert(actual);
     }
 
     /**
-     * Throw my exception.
+     * Caught exception.
+     *
+     * @return the my exception
      */
-    private void throwMyException() {
-        throw new MyException(500);
+    @Deprecated(since = "2.3.0", forRemoval = true)
+    public static MyException caughtException() {
+        return caughtException(MyException.class);
     }
 
 }
