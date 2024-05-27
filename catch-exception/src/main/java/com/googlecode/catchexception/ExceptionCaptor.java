@@ -15,6 +15,9 @@
  */
 package com.googlecode.catchexception;
 
+/**
+ * The Class ExceptionCaptor.
+ */
 final class ExceptionCaptor {
 
     /**
@@ -24,6 +27,14 @@ final class ExceptionCaptor {
         // Prevent instantiation
     }
 
+    /**
+     * Capture throwable.
+     *
+     * @param exceptionThrower
+     *            the exception thrower
+     *
+     * @return the exception
+     */
     public static Exception captureThrowable(ThrowingCallable exceptionThrower) {
         try {
             exceptionThrower.call();

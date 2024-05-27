@@ -26,9 +26,13 @@ import org.junit.jupiter.api.Test;
 /**
  * Tests custom exception assertions.
  */
-@SuppressWarnings("javadoc")
 class BDDCustomCatchExceptionTest {
 
+    /**
+     * Custom exception.
+     *
+     * @throws Exception the exception
+     */
     @Test
     void customException() throws Exception {
 
@@ -36,6 +40,9 @@ class BDDCustomCatchExceptionTest {
         then(caughtException()).hasErrorCode(500);
     }
 
+    /**
+     * Throw my exception.
+     */
     private void throwMyException() {
         throw new MyException(500);
     }

@@ -229,6 +229,16 @@ public final class CatchException {
         catchException(actor, clazz, false);
     }
 
+    /**
+     * Catch exception.
+     *
+     * @param actor
+     *            the actor
+     * @param clazz
+     *            the clazz
+     * @param assertException
+     *            the assert exception
+     */
     private static void catchException(ThrowingCallable actor, Class<? extends Exception> clazz,
             boolean assertException) {
         resetCaughtException();
@@ -249,6 +259,14 @@ public final class CatchException {
         }
     }
 
+    /**
+     * Validate arguments.
+     *
+     * @param actor
+     *            the actor
+     * @param clazz
+     *            the clazz
+     */
     private static void validateArguments(ThrowingCallable actor, Class<? extends Exception> clazz) {
         if (actor == null) {
             throw new IllegalArgumentException("obj must not be null");

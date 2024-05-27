@@ -45,6 +45,8 @@ import com.googlecode.catchexception.ThrowingCallable;
 public class BDDCatchException {
 
     /**
+     * When.
+     *
      * @param actor
      *            The instance that shall be proxied. Must not be <code>null</code>.
      *

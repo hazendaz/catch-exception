@@ -50,6 +50,8 @@ final class ThrowableHolder {
     }
 
     /**
+     * Gets the.
+     *
      * @param <E>
      *            the type of the caught throwable
      *

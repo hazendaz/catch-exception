@@ -20,11 +20,13 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 import org.junit.jupiter.api.Test;
 
 /**
- * Tests {@link ExceptionHolder}
+ * Tests {@link ExceptionHolder}.
  */
-@SuppressWarnings("javadoc")
 class ExceptionHolderTest {
 
+    /**
+     * Caught exception is null.
+     */
     @Test
     void caughtExceptionIsNull() {
 

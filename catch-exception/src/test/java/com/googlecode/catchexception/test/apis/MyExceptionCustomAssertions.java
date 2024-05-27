@@ -18,12 +18,28 @@ package com.googlecode.catchexception.test.apis;
 import com.googlecode.catchexception.MyException;
 import com.googlecode.catchexception.apis.BDDCatchException;
 
+/**
+ * The Class MyExceptionCustomAssertions.
+ */
 public class MyExceptionCustomAssertions extends BDDCatchException {
 
+    /**
+     * Then.
+     *
+     * @param actual
+     *            the actual
+     *
+     * @return the my exception custom assert
+     */
     public static MyExceptionCustomAssert then(MyException actual) {
         return new MyExceptionCustomAssert(actual);
     }
 
+    /**
+     * Caught exception.
+     *
+     * @return the my exception
+     */
     @Deprecated(since = "3.3.0", forRemoval = true)
     public static MyException caughtException() {
         return caughtException(MyException.class);

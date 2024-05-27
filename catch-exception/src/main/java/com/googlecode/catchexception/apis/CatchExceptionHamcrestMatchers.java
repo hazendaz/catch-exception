@@ -54,7 +54,7 @@ public final class CatchExceptionHamcrestMatchers {
     }
 
     /**
-     * EXAMPLE: <code>assertThat(caughtException(), hasMessage("Index: 9, Size: 9"));</code>
+     * EXAMPLE: <code>assertThat(caughtException(), hasMessage("Index: 9, Size: 9"));</code>.
      *
      * @param <T>
      *            the exception subclass
@@ -69,8 +69,8 @@ public final class CatchExceptionHamcrestMatchers {
 
     /**
      * EXAMPLES: <code>assertThat(caughtException(), hasMessageThat(is("Index: 9, Size: 9")));
-    assertThat(caughtException(), hasMessageThat(containsString("Index: 9"))); // using JUnitMatchers
-    assertThat(caughtException(), hasMessageThat(containsPattern("Index: \\d+"))); // using Mockito's Find</code>
+     *     assertThat(caughtException(), hasMessageThat(containsString("Index: 9"))); // using JUnitMatchers
+     *     assertThat(caughtException(), hasMessageThat(containsPattern("Index: \\d+"))); // using Mockito's Find</code>.
      *
      * @param <T>
      *            the exception subclass
@@ -84,7 +84,7 @@ public final class CatchExceptionHamcrestMatchers {
     }
 
     /**
-     * EXAMPLE: <code>assertThat(caughtException(), hasNoCause());</code>
+     * EXAMPLE: <code>assertThat(caughtException(), hasNoCause());</code>.
      *
      * @param <T>
      *            the exception subclass

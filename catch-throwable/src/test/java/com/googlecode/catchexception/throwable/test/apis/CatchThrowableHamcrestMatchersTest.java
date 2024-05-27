@@ -40,7 +40,6 @@ import org.junit.jupiter.api.Test;
 /**
  * Tests {@link CatchThrowableHamcrestMatchers}.
  */
-@SuppressWarnings("javadoc")
 class CatchThrowableHamcrestMatchersTest {
 
     /**
@@ -48,6 +47,9 @@ class CatchThrowableHamcrestMatchersTest {
      */
     private final String expectedMessageJdk9on = "Index 9 out of bounds for length 9";
 
+    /**
+     * Setup.
+     */
     @BeforeEach
     void setup() {
         List<String> fellowshipOfTheRing = new ArrayList<>();
@@ -65,6 +67,16 @@ class CatchThrowableHamcrestMatchersTest {
         catchThrowable(() -> fellowshipOfTheRing.get(9));
     }
 
+    /**
+     * Assert message.
+     *
+     * @param foundMessage
+     *            the found message
+     * @param expectedExpectedPart
+     *            the expected expected part
+     * @param expectedGotPart
+     *            the expected got part
+     */
     private void assertMessage(String foundMessage, String expectedExpectedPart, String expectedGotPart) {
 
         var foundParts = foundMessage.split("(?=but:)");
@@ -75,6 +87,9 @@ class CatchThrowableHamcrestMatchersTest {
         assertEquals(expectedGotPart, foundGotPart);
     }
 
+    /**
+     * Matcher instance of.
+     */
     @Test
     void matcherInstanceOf() {
 
@@ -94,10 +109,21 @@ class CatchThrowableHamcrestMatchersTest {
         }
     }
 
+    /**
+     * Contains pattern.
+     *
+     * @param regex
+     *            the regex
+     *
+     * @return the org.hamcrest. matcher
+     */
     private static org.hamcrest.Matcher<String> containsPattern(String regex) {
         return new Find(regex);
     }
 
+    /**
+     * Learningtest matcher has message find regex.
+     */
     @Test
     void learningtestMatcher_hasMessage_findRegex() {
 
@@ -113,6 +139,9 @@ class CatchThrowableHamcrestMatchersTest {
         }
     }
 
+    /**
+     * Matcher has message equal by string.
+     */
     @Test
     void matcherHasMessageEqualByString() {
 
@@ -131,6 +160,9 @@ class CatchThrowableHamcrestMatchersTest {
         }
     }
 
+    /**
+     * Matcher has message equal by string matcher.
+     */
     @Test
     void matcherHasMessageEqualByStringMatcher() {
 
@@ -149,6 +181,9 @@ class CatchThrowableHamcrestMatchersTest {
         }
     }
 
+    /**
+     * Matcher has message contains by string matcher.
+     */
     @Test
     void matcherHasMessageContainsByStringMatcher() {
 
@@ -167,6 +202,9 @@ class CatchThrowableHamcrestMatchersTest {
         }
     }
 
+    /**
+     * Matcher has no cause.
+     */
     @Test
     void matcherHasNoCause() {
 
@@ -184,6 +222,9 @@ class CatchThrowableHamcrestMatchersTest {
         }
     }
 
+    /**
+     * Matcher all of.
+     */
     @Test
     void matcherAllOf() {
 

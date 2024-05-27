@@ -15,6 +15,9 @@
  */
 package com.googlecode.catchexception.throwable;
 
+/**
+ * The Class ThrowableCaptor.
+ */
 final class ThrowableCaptor {
 
     /**
@@ -24,6 +27,14 @@ final class ThrowableCaptor {
         // Preventing instantiation
     }
 
+    /**
+     * Capture throwable.
+     *
+     * @param throwableThrower
+     *            the throwable thrower
+     *
+     * @return the throwable
+     */
     public static Throwable captureThrowable(ThrowingCallable throwableThrower) {
         try {
             throwableThrower.call();

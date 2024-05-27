@@ -18,6 +18,9 @@ package com.googlecode.catchexception.apis;
 import com.googlecode.catchexception.CatchException;
 import com.googlecode.catchexception.ExceptionNotThrownAssertionError;
 
+/**
+ * The Class CatchExceptionUtils.
+ */
 final class CatchExceptionUtils {
 
     /**
@@ -27,6 +30,12 @@ final class CatchExceptionUtils {
         // Prevent instantiation
     }
 
+    /**
+     * Then thrown.
+     *
+     * @param actualExceptionClazz
+     *            the actual exception clazz
+     */
     @SuppressWarnings({ "rawtypes", "unchecked" })
     public static void thenThrown(Class actualExceptionClazz) {
         var e = CatchException.caughtException();

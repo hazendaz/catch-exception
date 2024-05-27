@@ -34,6 +34,8 @@ public class ExceptionMessageMatcher<T extends Exception> extends BaseMatcher<T>
     private Matcher<String> expectedMessageMatcher;
 
     /**
+     * Instantiates a new exception message matcher.
+     *
      * @param expectedMessage
      *            the expected exception message
      */
@@ -42,6 +44,8 @@ public class ExceptionMessageMatcher<T extends Exception> extends BaseMatcher<T>
     }
 
     /**
+     * Instantiates a new exception message matcher.
+     *
      * @param expectedMessageMatcher
      *            a string matcher that shall match the exception message
      */

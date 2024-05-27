@@ -22,14 +22,22 @@ import org.hamcrest.BaseMatcher;
 import org.hamcrest.Description;
 
 /**
- * Copied from Mockito internal
+ * Copied from Mockito internal.
  */
 public class Find extends BaseMatcher<String> implements Serializable {
 
+    /** The Constant serialVersionUID. */
     private static final long serialVersionUID = 8895781429480404872L;
 
+    /** The regex. */
     private final String regex;
 
+    /**
+     * Instantiates a new find.
+     *
+     * @param regex
+     *            the regex
+     */
     public Find(String regex) {
         this.regex = regex;
     }

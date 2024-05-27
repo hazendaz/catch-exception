@@ -34,6 +34,8 @@ public class ThrowableMessageMatcher<T extends Throwable> extends BaseMatcher<T>
     private Matcher<String> expectedMessageMatcher;
 
     /**
+     * Instantiates a new throwable message matcher.
+     *
      * @param expectedMessage
      *            the expected throwable message
      */
@@ -42,6 +44,8 @@ public class ThrowableMessageMatcher<T extends Throwable> extends BaseMatcher<T>
     }
 
     /**
+     * Instantiates a new throwable message matcher.
+     *
      * @param expectedMessageMatcher
      *            a string matcher that shall match the throwable message
      */

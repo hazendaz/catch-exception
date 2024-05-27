@@ -33,9 +33,9 @@ import org.junit.jupiter.api.Test;
 /**
  * Tests {@link CatchException}.
  */
-@SuppressWarnings("javadoc")
 class CatchExceptionTest {
 
+    /** The list. */
     private final List<String> list = new ArrayList<>();
 
     /**
@@ -48,12 +48,18 @@ class CatchExceptionTest {
      */
     private final String expectedMessageJdk9on = "Index 0 out of bounds for length 0";
 
+    /**
+     * Sets the up.
+     */
     @BeforeEach
     void setUp() {
         // set any exception so that we have clear state before the test
         ExceptionHolder.set(new HttpRetryException("detail", 0));
     }
 
+    /**
+     * Catch exception obj exc no exception thrown.
+     */
     @Test
     void catchExceptionObjExcNoExceptionThrown() {
 
@@ -61,6 +67,9 @@ class CatchExceptionTest {
         assertNull(caughtException());
     }
 
+    /**
+     * Catch exception obj exc actual class thrown.
+     */
     @Test
     void catchExceptionObjExcActualClassThrown() {
 
@@ -71,6 +80,9 @@ class CatchExceptionTest {
         }
     }
 
+    /**
+     * Catch exception obj exc sub class of expected thrown.
+     */
     @Test
     void catchExceptionObjExcSubClassOfExpectedThrown() {
 
@@ -81,6 +93,9 @@ class CatchExceptionTest {
         }
     }
 
+    /**
+     * Catch exception obj exc super class of expected thrown.
+     */
     @Test
     void catchExceptionObjExcSuperClassOfExpectedThrown() {
 
@@ -92,6 +107,9 @@ class CatchExceptionTest {
         }
     }
 
+    /**
+     * Catch exception obj exc other class than expected thrown.
+     */
     @Test
     void catchExceptionObjExcOtherClassThanExpectedThrown() {
 
@@ -103,6 +121,9 @@ class CatchExceptionTest {
         }
     }
 
+    /**
+     * Catch exception obj exc missing argument exception.
+     */
     @Test
     void catchExceptionObjExcMissingArgumentException() {
 
@@ -115,6 +136,9 @@ class CatchExceptionTest {
         }
     }
 
+    /**
+     * Catch exception obj exc missing argument object.
+     */
     @Test
     void catchExceptionObjExcMissingArgumentObject() {
 
@@ -126,6 +150,9 @@ class CatchExceptionTest {
         }
     }
 
+    /**
+     * Verify exception obj exc no exception thrown.
+     */
     @Test
     void verifyExceptionObjExcNoExceptionThrown() {
 
@@ -140,6 +167,9 @@ class CatchExceptionTest {
 
     }
 
+    /**
+     * Verify exception obj exc actual class thrown.
+     */
     @Test
     void verifyExceptionObjExcActualClassThrown() {
 
@@ -150,6 +180,9 @@ class CatchExceptionTest {
         }
     }
 
+    /**
+     * Verify exception obj exc sub class of expected thrown.
+     */
     @Test
     void verifyExceptionObjExcSubClassOfExpectedThrown() {
 
@@ -160,6 +193,9 @@ class CatchExceptionTest {
         }
     }
 
+    /**
+     * Verify exception obj exc super class of expected thrown.
+     */
     @Test
     void verifyExceptionObjExcSuperClassOfExpectedThrown() {
 
@@ -178,6 +214,9 @@ class CatchExceptionTest {
         }
     }
 
+    /**
+     * Verify exception obj exc other class than expected thrown.
+     */
     @Test
     void verifyExceptionObjExcOtherClassThanExpectedThrown() {
 
@@ -196,6 +235,9 @@ class CatchExceptionTest {
         }
     }
 
+    /**
+     * Verify exception obj exc missing argument exception.
+     */
     @Test
     void verifyExceptionObjExcMissingArgumentException() {
 
@@ -208,6 +250,9 @@ class CatchExceptionTest {
         }
     }
 
+    /**
+     * Verify exception obj exc missing argument object.
+     */
     @Test
     void verifyExceptionObjExcMissingArgumentObject() {
 
@@ -219,6 +264,9 @@ class CatchExceptionTest {
         }
     }
 
+    /**
+     * Verify exception obj no exception thrown.
+     */
     @Test
     void verifyExceptionObjNoExceptionThrown() {
 
@@ -234,6 +282,9 @@ class CatchExceptionTest {
         }
     }
 
+    /**
+     * Verify exception obj exception thrown.
+     */
     @Test
     void verifyExceptionObjExceptionThrown() {
 
@@ -245,6 +296,9 @@ class CatchExceptionTest {
         }
     }
 
+    /**
+     * Verify exception obj missing argument object.
+     */
     @Test
     void verifyExceptionObjMissingArgumentObject() {
 
@@ -257,6 +311,9 @@ class CatchExceptionTest {
         }
     }
 
+    /**
+     * Catch exception obj no exception thrown.
+     */
     @Test
     void catchExceptionObjNoExceptionThrown() {
 
@@ -267,6 +324,9 @@ class CatchExceptionTest {
         assertNull(caughtException());
     }
 
+    /**
+     * Catch exception obj exception thrown.
+     */
     @Test
     void catchExceptionObjExceptionThrown() {
 
@@ -278,6 +338,9 @@ class CatchExceptionTest {
         }
     }
 
+    /**
+     * Catch exception obj missing argument object.
+     */
     @Test
     void catchExceptionObjMissingArgumentObject() {
 
@@ -290,6 +353,9 @@ class CatchExceptionTest {
         }
     }
 
+    /**
+     * Test protected.
+     */
     @Test
     void testProtected() {
         var obj = new PublicSomethingImpl();

@@ -26,9 +26,13 @@ import org.junit.jupiter.api.Test;
 /**
  * Tests custom throwable assertions.
  */
-@SuppressWarnings("javadoc")
 class BDDCustomCatchThrowableTest {
 
+    /**
+     * Custom exception.
+     *
+     * @throws Exception the exception
+     */
     @Test
     void customException() throws Exception {
 
@@ -37,6 +41,9 @@ class BDDCustomCatchThrowableTest {
         then(caughtThrowable()).hasErrorCode(500);
     }
 
+    /**
+     * Throw my throwable.
+     */
     private void throwMyThrowable() {
         throw new MyThrowable(500);
     }

@@ -32,7 +32,6 @@ import org.junit.jupiter.api.Test;
 /**
  * Tests {@link com.googlecode.catchexception.apis.BDDCatchException}.
  */
-@SuppressWarnings("javadoc")
 class BDDCatchExceptionTest {
 
     /**
@@ -45,6 +44,9 @@ class BDDCatchExceptionTest {
      */
     private final String expectedMessageJdk9on500 = "Index 500 out of bounds for length 9";
 
+    /**
+     * Then.
+     */
     @SuppressWarnings("rawtypes")
     @Test
     void then() {
@@ -67,6 +69,9 @@ class BDDCatchExceptionTest {
 
     }
 
+    /**
+     * Assert J then.
+     */
     @SuppressWarnings("rawtypes")
     @Test
     void assertJThen() {
@@ -89,6 +94,9 @@ class BDDCatchExceptionTest {
         BDDAssertions.then(new Exception()).hasMessage(null);
     }
 
+    /**
+     * Then thrown.
+     */
     @SuppressWarnings("rawtypes")
     @Test
     void thenThrown() {

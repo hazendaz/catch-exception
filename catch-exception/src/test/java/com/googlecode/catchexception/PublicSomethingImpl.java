@@ -15,7 +15,9 @@
  */
 package com.googlecode.catchexception;
 
-@SuppressWarnings("javadoc")
+/**
+ * The Class PublicSomethingImpl.
+ */
 public class PublicSomethingImpl implements Something {
 
     @Override
@@ -38,6 +40,9 @@ public class PublicSomethingImpl implements Something {
         throw new AssertionError(123);
     }
 
+    /**
+     * Dooo.
+     */
     protected void dooo() {
         throw new MyException(404);
     }

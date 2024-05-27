@@ -18,12 +18,28 @@ package com.googlecode.catchexception.throwable.test.apis;
 import com.googlecode.catchexception.throwable.MyThrowable;
 import com.googlecode.catchexception.throwable.apis.BDDCatchThrowable;
 
+/**
+ * The Class MyThrowableCustomAssertions.
+ */
 public class MyThrowableCustomAssertions extends BDDCatchThrowable {
 
+    /**
+     * Then.
+     *
+     * @param actual
+     *            the actual
+     *
+     * @return the my throwable custom assert
+     */
     public static MyThrowableCustomAssert then(MyThrowable actual) {
         return new MyThrowableCustomAssert(actual);
     }
 
+    /**
+     * Caught throwable.
+     *
+     * @return the my throwable
+     */
     @Deprecated(since = "3.3.0", forRemoval = true)
     public static MyThrowable caughtThrowable() {
         return caughtThrowable(MyThrowable.class);

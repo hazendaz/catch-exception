@@ -16,7 +16,7 @@
 package com.googlecode.catchexception.throwable;
 
 /**
- * Code borrowed from famous Spock Framework
+ * Code borrowed from famous Spock Framework.
  */
 final class ExceptionUtil {
 
@@ -37,6 +37,17 @@ final class ExceptionUtil {
         ExceptionUtil.doSneakyThrow(t);
     }
 
+    /**
+     * Do sneaky throw.
+     *
+     * @param <T>
+     *            the generic type
+     * @param t
+     *            the t
+     *
+     * @throws T
+     *             the t
+     */
     @SuppressWarnings("unchecked")
     private static <T extends Throwable> void doSneakyThrow(Throwable t) throws T {
         throw (T) t;

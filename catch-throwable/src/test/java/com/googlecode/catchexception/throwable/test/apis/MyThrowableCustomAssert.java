@@ -1,5 +1,5 @@
 /*
- * Copyright 2011-2023 the original author or authors.
+ * Copyright 2011-2024 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,12 +19,29 @@ import com.googlecode.catchexception.throwable.MyThrowable;
 
 import org.assertj.core.api.AbstractThrowableAssert;
 
+/**
+ * The Class MyThrowableCustomAssert.
+ */
 public class MyThrowableCustomAssert extends AbstractThrowableAssert<MyThrowableCustomAssert, MyThrowable> {
 
+    /**
+     * Instantiates a new my throwable custom assert.
+     *
+     * @param actual
+     *            the actual
+     */
     protected MyThrowableCustomAssert(MyThrowable actual) {
         super(actual, MyThrowableCustomAssert.class);
     }
 
+    /**
+     * Checks for error code.
+     *
+     * @param errorCode
+     *            the error code
+     *
+     * @return the my throwable custom assert
+     */
     public MyThrowableCustomAssert hasErrorCode(int errorCode) {
         isNotNull();
         if (actual.getErrorCode() != errorCode) {

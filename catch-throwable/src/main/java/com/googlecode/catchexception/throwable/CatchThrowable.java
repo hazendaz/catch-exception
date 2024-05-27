@@ -15,6 +15,9 @@
  */
 package com.googlecode.catchexception.throwable;
 
+/**
+ * The Class CatchThrowable.
+ */
 public final class CatchThrowable {
 
     /**
@@ -27,14 +30,14 @@ public final class CatchThrowable {
     /**
      * Returns the throwable caught during the last call on the proxied object in the current thread.
      *
+     * @param <T>
+     *            throwable caught during the last call on the proxied object
+     *
      * @return Returns the throwable caught during the last call on the proxied object in the current thread - if the
      *         call was made through a proxy that has been created via {@link #verifyThrowable(ThrowingCallable, Class)}
      *         verifyThrowable()} or {@link #catchThrowable(ThrowingCallable)}. Returns null the proxy has not caught an
      *         throwable. Returns null if the caught throwable belongs to a class that is no longer {@link ClassLoader
      *         loaded}.
-     *
-     * @param <T>
-     *            throwable caught during the last call on the proxied object
      */
     public static <T extends Throwable> T caughtThrowable() {
         return ThrowableHolder.get();
@@ -131,6 +134,16 @@ public final class CatchThrowable {
         catchThrowable(actor, clazz, false);
     }
 
+    /**
+     * Catch throwable.
+     *
+     * @param actor
+     *            the actor
+     * @param clazz
+     *            the clazz
+     * @param assertException
+     *            the assert exception
+     */
     private static void catchThrowable(ThrowingCallable actor, Class<? extends Throwable> clazz,
             boolean assertException) {
         resetCaughtThrowable();
@@ -151,6 +164,14 @@ public final class CatchThrowable {
         }
     }
 
+    /**
+     * Validate arguments.
+     *
+     * @param actor
+     *            the actor
+     * @param clazz
+     *            the clazz
+     */
     private static void validateArguments(ThrowingCallable actor, Class<? extends Throwable> clazz) {
         if (actor == null) {
             throw new IllegalArgumentException("obj must not be null");

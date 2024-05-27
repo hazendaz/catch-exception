@@ -52,7 +52,7 @@ public final class CatchThrowableHamcrestMatchers {
     }
 
     /**
-     * EXAMPLE: <code>assertThat(caughtThrowable(), hasMessage("Index: 9, Size: 9"));</code>
+     * EXAMPLE: <code>assertThat(caughtThrowable(), hasMessage("Index: 9, Size: 9"));</code>.
      *
      * @param <T>
      *            the throwable subclass
@@ -67,8 +67,8 @@ public final class CatchThrowableHamcrestMatchers {
 
     /**
      * EXAMPLES: <code>assertThat(caughtThrowable(), hasMessageThat(is("Index: 9, Size: 9")));
-    assertThat(caughtThrowable(), hasMessageThat(containsString("Index: 9"))); // using JUnitMatchers
-    assertThat(caughtThrowable(), hasMessageThat(containsPattern("Index: \\d+"))); // using Mockito's Find</code>
+     *     assertThat(caughtThrowable(), hasMessageThat(containsString("Index: 9"))); // using JUnitMatchers
+     *     assertThat(caughtThrowable(), hasMessageThat(containsPattern("Index: \\d+"))); // using Mockito's Find</code>.
      *
      * @param <T>
      *            the throwable subclass
@@ -82,7 +82,7 @@ public final class CatchThrowableHamcrestMatchers {
     }
 
     /**
-     * EXAMPLE: <code>assertThat(caughtThrowable(), hasNoCause());</code>
+     * EXAMPLE: <code>assertThat(caughtThrowable(), hasNoCause());</code>.
      *
      * @param <T>
      *            the throwable subclass

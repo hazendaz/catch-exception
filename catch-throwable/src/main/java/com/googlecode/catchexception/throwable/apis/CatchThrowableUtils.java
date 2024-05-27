@@ -18,6 +18,9 @@ package com.googlecode.catchexception.throwable.apis;
 import com.googlecode.catchexception.throwable.CatchThrowable;
 import com.googlecode.catchexception.throwable.ThrowableNotThrownAssertionError;
 
+/**
+ * The Class CatchThrowableUtils.
+ */
 final class CatchThrowableUtils {
 
     /**
@@ -27,6 +30,12 @@ final class CatchThrowableUtils {
         // Preventing instantiation
     }
 
+    /**
+     * Then thrown.
+     *
+     * @param actualThrowableClazz
+     *            the actual throwable clazz
+     */
     @SuppressWarnings({ "unchecked", "rawtypes" })
     public static void thenThrown(Class actualThrowableClazz) {
         var e = CatchThrowable.caughtThrowable();

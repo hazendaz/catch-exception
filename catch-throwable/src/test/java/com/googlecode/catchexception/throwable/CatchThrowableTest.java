@@ -33,9 +33,9 @@ import org.junit.jupiter.api.Test;
 /**
  * Tests {@link CatchThrowable}.
  */
-@SuppressWarnings("javadoc")
 class CatchThrowableTest {
 
+    /** The list. */
     private final List<String> list = new ArrayList<>();
 
     /**
@@ -48,12 +48,18 @@ class CatchThrowableTest {
      */
     private final String expectedMessageJdk9on = "Index 0 out of bounds for length 0";
 
+    /**
+     * Sets the up.
+     */
     @BeforeEach
     void setUp() {
         // set any exception so that we have clear state before the test
         ThrowableHolder.set(new HttpRetryException("detail", 0));
     }
 
+    /**
+     * Catch exception obj exc no exception thrown.
+     */
     @Test
     void catchExceptionObjExcNoExceptionThrown() {
 
@@ -61,6 +67,9 @@ class CatchThrowableTest {
         assertNull(caughtThrowable());
     }
 
+    /**
+     * Catch exception throw error.
+     */
     @Test
     void catchExceptionThrowError() {
 
@@ -70,6 +79,9 @@ class CatchThrowableTest {
         assertEquals(Error.class, caughtThrowable().getClass());
     }
 
+    /**
+     * Catch exception obj exc actual class thrown.
+     */
     @Test
     void catchExceptionObjExcActualClassThrown() {
 
@@ -80,6 +92,9 @@ class CatchThrowableTest {
         }
     }
 
+    /**
+     * Catch exception obj exc sub class of expected thrown.
+     */
     @Test
     void catchExceptionObjExcSubClassOfExpectedThrown() {
 
@@ -90,6 +105,9 @@ class CatchThrowableTest {
         }
     }
 
+    /**
+     * Catch exception obj exc super class of expected thrown.
+     */
     @Test
     void catchExceptionObjExcSuperClassOfExpectedThrown() {
 
@@ -101,6 +119,9 @@ class CatchThrowableTest {
         }
     }
 
+    /**
+     * Catch exception obj exc other class than expected thrown.
+     */
     @Test
     void catchExceptionObjExcOtherClassThanExpectedThrown() {
 
@@ -112,6 +133,9 @@ class CatchThrowableTest {
         }
     }
 
+    /**
+     * Catch exception obj exc missing argument exception.
+     */
     @Test
     void catchExceptionObjExcMissingArgumentException() {
 
@@ -124,6 +148,9 @@ class CatchThrowableTest {
         }
     }
 
+    /**
+     * Catch exception obj exc missing argument object.
+     */
     @Test
     void catchExceptionObjExcMissingArgumentObject() {
 
@@ -135,6 +162,9 @@ class CatchThrowableTest {
         }
     }
 
+    /**
+     * Testverify throwable obj exc no exception thrown.
+     */
     @Test
     void testverifyThrowable_ObjExc_noExceptionThrown() {
 
@@ -149,6 +179,9 @@ class CatchThrowableTest {
 
     }
 
+    /**
+     * Testverify throwable obj exc actual class thrown.
+     */
     @Test
     void testverifyThrowable_ObjExc_actualClassThrown() {
 
@@ -159,6 +192,9 @@ class CatchThrowableTest {
         }
     }
 
+    /**
+     * Testverify throwable obj exc sub class of expected thrown.
+     */
     @Test
     void testverifyThrowable_ObjExc_subClassOfExpectedThrown() {
 
@@ -169,6 +205,9 @@ class CatchThrowableTest {
         }
     }
 
+    /**
+     * Testverify throwable obj exc super class of expected thrown.
+     */
     @Test
     void testverifyThrowable_ObjExc_superClassOfExpectedThrown() {
 
@@ -187,6 +226,9 @@ class CatchThrowableTest {
         }
     }
 
+    /**
+     * Testverify throwable obj exc other class than expected thrown.
+     */
     @Test
     void testverifyThrowable_ObjExc_otherClassThanExpectedThrown() {
 
@@ -206,6 +248,9 @@ class CatchThrowableTest {
 
     }
 
+    /**
+     * Testverify throwable obj exc missing argument exception.
+     */
     @Test
     void testverifyThrowable_ObjExc_missingArgument_Exception() {
 
@@ -218,6 +263,9 @@ class CatchThrowableTest {
         }
     }
 
+    /**
+     * Testverify throwable obj exc missing argument object.
+     */
     @Test
     void testverifyThrowable_ObjExc_missingArgument_Object() {
 
@@ -229,6 +277,9 @@ class CatchThrowableTest {
         }
     }
 
+    /**
+     * Testverify throwable obj no exception thrown.
+     */
     @Test
     void testverifyThrowable_Obj_noExceptionThrown() {
 
@@ -244,6 +295,9 @@ class CatchThrowableTest {
         }
     }
 
+    /**
+     * Testverify throwable obj exception thrown.
+     */
     @Test
     void testverifyThrowable_Obj_exceptionThrown() {
 
@@ -255,6 +309,9 @@ class CatchThrowableTest {
         }
     }
 
+    /**
+     * Testverify throwable obj missing argument object.
+     */
     @Test
     void testverifyThrowable_Obj_missingArgument_Object() {
 
@@ -267,6 +324,9 @@ class CatchThrowableTest {
         }
     }
 
+    /**
+     * Catch exception obj no exception thrown.
+     */
     @Test
     void catchExceptionObjNoExceptionThrown() {
 
@@ -277,6 +337,9 @@ class CatchThrowableTest {
         assertNull(caughtThrowable());
     }
 
+    /**
+     * Catch exception obj exception thrown.
+     */
     @Test
     void catchExceptionObjExceptionThrown() {
 
@@ -288,6 +351,9 @@ class CatchThrowableTest {
         }
     }
 
+    /**
+     * Catch exception obj missing argument object.
+     */
     @Test
     void catchExceptionObjMissingArgumentObject() {
 
@@ -300,6 +366,9 @@ class CatchThrowableTest {
         }
     }
 
+    /**
+     * Test protected.
+     */
     @Test
     void testProtected() {
         var obj = new PublicSomethingImpl();

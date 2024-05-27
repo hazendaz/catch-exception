@@ -15,20 +15,39 @@
  */
 package com.googlecode.catchexception;
 
+/**
+ * The Class MyException.
+ */
 public class MyException extends RuntimeException {
 
+    /** The Constant serialVersionUID. */
     private static final long serialVersionUID = 1L;
 
+    /** The error code. */
     private final int errorCode;
 
+    /**
+     * Instantiates a new my exception.
+     */
     public MyException() {
         this.errorCode = 0;
     }
 
+    /**
+     * Instantiates a new my exception.
+     *
+     * @param errorCode
+     *            the error code
+     */
     public MyException(int errorCode) {
         this.errorCode = errorCode;
     }
 
+    /**
+     * Gets the error code.
+     *
+     * @return the error code
+     */
     public int getErrorCode() {
         return errorCode;
     }
