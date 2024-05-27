@@ -40,7 +40,7 @@ public class MyThrowableCustomAssertions extends BDDCatchThrowable {
      *
      * @return the my throwable
      */
-    @Deprecated(since = "3.3.0", forRemoval = true)
+    @Deprecated(since = "2.3.0", forRemoval = true)
     public static MyThrowable caughtThrowable() {
         return caughtThrowable(MyThrowable.class);
     }

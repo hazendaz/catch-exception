@@ -149,7 +149,7 @@ public final class CatchException {
      *
      * @deprecated Use caughtXception() as passed argument is not used
      */
-    @Deprecated(since = "3.3.0", forRemoval = true)
+    @Deprecated(since = "2.3.0", forRemoval = true)
     public static <E extends Exception> E caughtException(Class<E> caughtExceptionType) {
         return ExceptionHolder.get();
     }

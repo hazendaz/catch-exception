@@ -80,7 +80,7 @@ public class BDDCatchException {
      *
      * @deprecated Use CatchException.caughtException() instead as there is no usage of caughtExceptionType
      */
-    @Deprecated(since = "3.3.0", forRemoval = true)
+    @Deprecated(since = "2.3.0", forRemoval = true)
     public static <E extends Exception> E caughtException(Class<E> caughtExceptionType) {
         return CatchException.caughtException(caughtExceptionType);
     }

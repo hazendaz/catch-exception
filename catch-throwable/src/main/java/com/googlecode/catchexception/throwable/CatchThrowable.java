@@ -55,7 +55,7 @@ public final class CatchThrowable {
      *
      * @deprecated Use caghtThrowable() instead as the passed argument does nothing
      */
-    @Deprecated(since = "3.3.0", forRemoval = true)
+    @Deprecated(since = "2.3.0", forRemoval = true)
     public static <T extends Throwable> T caughtThrowable(Class<T> caughtThrowableType) {
         return ThrowableHolder.get();
     }

@@ -40,7 +40,7 @@ public class MyExceptionCustomAssertions extends BDDCatchException {
      *
      * @return the my exception
      */
-    @Deprecated(since = "3.3.0", forRemoval = true)
+    @Deprecated(since = "2.3.0", forRemoval = true)
     public static MyException caughtException() {
         return caughtException(MyException.class);
     }
