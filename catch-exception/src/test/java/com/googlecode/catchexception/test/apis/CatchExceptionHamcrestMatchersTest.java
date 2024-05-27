@@ -62,9 +62,7 @@ class CatchExceptionHamcrestMatchersTest {
         fellowshipOfTheRing.add("aragorn");
         fellowshipOfTheRing.add("boromir");
 
-        // assertThat(fellowshipOfTheRing, hasSize(9));
         catchException(() -> fellowshipOfTheRing.get(9));
-        // caughtException().printStackTrace();
     }
 
     private void assertMessage(String foundMessage, String expectedExpectedPart, String expectedGotPart) {

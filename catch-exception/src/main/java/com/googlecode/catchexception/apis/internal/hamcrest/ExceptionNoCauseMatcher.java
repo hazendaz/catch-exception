@@ -1,5 +1,5 @@
 /*
- * Copyright 2011-2023 the original author or authors.
+ * Copyright 2011-2024 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,10 +27,7 @@ import org.hamcrest.Matcher;
  */
 public class ExceptionNoCauseMatcher<T extends Exception> extends BaseMatcher<T> {
 
-    /*
-     * (non-Javadoc)
-     * @see org.hamcrest.Matcher#matches(java.lang.Object)
-     */
+    @Override
     public boolean matches(Object obj) {
         if (!(obj instanceof Exception))
             return false;
@@ -40,10 +37,7 @@ public class ExceptionNoCauseMatcher<T extends Exception> extends BaseMatcher<T>
         return exception.getCause() == null;
     }
 
-    /*
-     * (non-Javadoc)
-     * @see org.hamcrest.SelfDescribing#describeTo(org.hamcrest.Description)
-     */
+    @Override
     public void describeTo(Description description) {
         description.appendText("has no cause");
     }

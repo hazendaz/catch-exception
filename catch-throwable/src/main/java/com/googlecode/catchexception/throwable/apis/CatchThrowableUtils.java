@@ -1,5 +1,5 @@
 /*
- * Copyright 2011-2023 the original author or authors.
+ * Copyright 2011-2024 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,7 +18,14 @@ package com.googlecode.catchexception.throwable.apis;
 import com.googlecode.catchexception.throwable.CatchThrowable;
 import com.googlecode.catchexception.throwable.ThrowableNotThrownAssertionError;
 
-class CatchThrowableUtils {
+final class CatchThrowableUtils {
+
+    /**
+     * Prevent Instantiation of a new catch throable utils.
+     */
+    private CatchThrowableUtils() {
+        // Preventing instantiation
+    }
 
     @SuppressWarnings({ "unchecked", "rawtypes" })
     public static void thenThrown(Class actualThrowableClazz) {

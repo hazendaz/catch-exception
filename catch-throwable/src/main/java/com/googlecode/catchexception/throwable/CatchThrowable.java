@@ -1,5 +1,5 @@
 /*
- * Copyright 2011-2023 the original author or authors.
+ * Copyright 2011-2024 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,7 +15,14 @@
  */
 package com.googlecode.catchexception.throwable;
 
-public class CatchThrowable {
+public final class CatchThrowable {
+
+    /**
+     * Prevent Instantiation of a new catch exception.
+     */
+    private CatchThrowable() {
+        // Preventing instantiation
+    }
 
     /**
      * Returns the throwable caught during the last call on the proxied object in the current thread.
@@ -33,6 +40,19 @@ public class CatchThrowable {
         return ThrowableHolder.get();
     }
 
+    /**
+     * Caught throwable.
+     *
+     * @param <T>
+     *            the generic type
+     * @param caughtThrowableType
+     *            the caught throwable type
+     *
+     * @return the t
+     *
+     * @deprecated Use caghtThrowable() instead as the passed argument does nothing
+     */
+    @Deprecated(since = "3.3.0", forRemoval = true)
     public static <T extends Throwable> T caughtThrowable(Class<T> caughtThrowableType) {
         return ThrowableHolder.get();
     }

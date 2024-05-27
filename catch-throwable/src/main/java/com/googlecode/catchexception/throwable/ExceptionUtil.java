@@ -1,5 +1,5 @@
 /*
- * Copyright 2011-2023 the original author or authors.
+ * Copyright 2011-2024 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,7 +18,14 @@ package com.googlecode.catchexception.throwable;
 /**
  * Code borrowed from famous Spock Framework
  */
-class ExceptionUtil {
+final class ExceptionUtil {
+
+    /**
+     * Prevent Instantiation of a new exception util.
+     */
+    private ExceptionUtil() {
+        // Preventing instantiation
+    }
 
     /**
      * Allows to throw an unchecked exception without declaring it in a throws clause.
@@ -34,4 +41,5 @@ class ExceptionUtil {
     private static <T extends Throwable> void doSneakyThrow(Throwable t) throws T {
         throw (T) t;
     }
+
 }

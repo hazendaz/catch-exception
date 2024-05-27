@@ -35,7 +35,7 @@ class CatchExceptionInConstructorTest {
     }
 
     @Test
-    void exceptionThrownInConstructor() throws Exception {
+    void exceptionThrownInConstructor() {
 
         Supplier<Thing> builder = () -> new Thing("baddata");
         verifyException(builder::get, IllegalArgumentException.class);

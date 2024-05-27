@@ -28,6 +28,9 @@
 
     <groupId>com.github.hazendaz.catch-exception</groupId>
     <artifactId>catch-exception</artifactId>
+    <version>2.2.1-SNAPSHOT</version>
+
+    <name>catch-exception</name>
     <description>Catch throwables (not only exceptions)</description>
 
     <scm>
@@ -51,11 +54,6 @@
         <dependency>
             <groupId>org.hamcrest</groupId>
             <artifactId>hamcrest</artifactId>
-            <optional>true</optional>
-        </dependency>
-        <dependency>
-            <groupId>org.junit.vintage</groupId>
-            <artifactId>junit-vintage-engine</artifactId>
             <optional>true</optional>
         </dependency>
         <dependency>

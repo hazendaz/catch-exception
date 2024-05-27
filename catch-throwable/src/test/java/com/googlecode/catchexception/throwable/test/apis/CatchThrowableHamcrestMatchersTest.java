@@ -62,9 +62,7 @@ class CatchThrowableHamcrestMatchersTest {
         fellowshipOfTheRing.add("aragorn");
         fellowshipOfTheRing.add("boromir");
 
-        // assertThat(fellowshipOfTheRing, hasSize(9));
         catchThrowable(() -> fellowshipOfTheRing.get(9));
-        // caughtThrowable().printStackTrace();
     }
 
     private void assertMessage(String foundMessage, String expectedExpectedPart, String expectedGotPart) {

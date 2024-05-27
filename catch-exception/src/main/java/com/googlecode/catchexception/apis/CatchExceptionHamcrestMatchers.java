@@ -1,5 +1,5 @@
 /*
- * Copyright 2011-2023 the original author or authors.
+ * Copyright 2011-2024 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,7 +19,6 @@ import com.googlecode.catchexception.apis.internal.hamcrest.ExceptionMessageMatc
 import com.googlecode.catchexception.apis.internal.hamcrest.ExceptionNoCauseMatcher;
 
 import org.hamcrest.Matcher;
-import org.junit.matchers.JUnitMatchers;
 
 /**
  * Provides some Hamcrest {@link Matcher matchers} to match some {@link Exception exception} properties.
@@ -42,13 +41,17 @@ import org.junit.matchers.JUnitMatchers;
  * }
  * <p>
  * To combine the standard Hamcrest matchers, your custom matchers, these matchers, and other matcher collections (as
- * {@link JUnitMatchers}) in a single class follow the instructions outlined in
+ * JUnitMatchers in a single class follow the instructions outlined in
  * <a href="http://code.google.com/p/hamcrest/wiki/Tutorial#Sugar_generation">Sugar generation</a>.
- * <p>
- * Hint: This class might use <a href="http://code.google.com/p/hamsandwich">hamsandwich</a> in the future but as long
- * as hamsandwich is not in any public maven repository, this class will not use hamsandwich.
  */
-public class CatchExceptionHamcrestMatchers {
+public final class CatchExceptionHamcrestMatchers {
+
+    /**
+     * Prevent Instantiation of a new catch exception hamcrest matchers.
+     */
+    private CatchExceptionHamcrestMatchers() {
+        // Preventing instantiation
+    }
 
     /**
      * EXAMPLE: <code>assertThat(caughtException(), hasMessage("Index: 9, Size: 9"));</code>
@@ -60,7 +63,7 @@ public class CatchExceptionHamcrestMatchers {
      *
      * @return Returns a matcher that matches an exception if it has the given message.
      */
-    public static <T extends Exception> org.hamcrest.Matcher<T> hasMessage(String expectedMessage) {
+    public static <T extends Exception> Matcher<T> hasMessage(String expectedMessage) {
         return new ExceptionMessageMatcher<>(expectedMessage);
     }
 
@@ -76,7 +79,7 @@ public class CatchExceptionHamcrestMatchers {
      *
      * @return Returns a matcher that matches an exception if the given string matcher matches the exception message.
      */
-    public static <T extends Exception> org.hamcrest.Matcher<T> hasMessageThat(Matcher<String> stringMatcher) {
+    public static <T extends Exception> Matcher<T> hasMessageThat(Matcher<String> stringMatcher) {
         return new ExceptionMessageMatcher<>(stringMatcher);
     }
 
@@ -88,7 +91,7 @@ public class CatchExceptionHamcrestMatchers {
      *
      * @return Returns a matcher that matches the exception if it does not have a {@link Throwable#getCause() cause}.
      */
-    public static <T extends Exception> org.hamcrest.Matcher<T> hasNoCause() {
+    public static <T extends Exception> Matcher<T> hasNoCause() {
         return new ExceptionNoCauseMatcher<>();
     }
 

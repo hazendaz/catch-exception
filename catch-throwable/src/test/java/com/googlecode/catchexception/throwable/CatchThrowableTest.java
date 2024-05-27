@@ -232,11 +232,11 @@ class CatchThrowableTest {
     @Test
     void testverifyThrowable_Obj_noExceptionThrown() {
 
-        List<String> list = new ArrayList<>();
+        List<String> myList = new ArrayList<>();
 
         // no exception thrown by size()
         try {
-            verifyThrowable(list::size);
+            verifyThrowable(myList::size);
             fail("ThrowableNotThrownAssertionError is expected");
         } catch (ThrowableNotThrownAssertionError e) {
             assertNull(caughtThrowable());
@@ -247,9 +247,9 @@ class CatchThrowableTest {
     @Test
     void testverifyThrowable_Obj_exceptionThrown() {
 
-        List<String> list = new ArrayList<>();
+        List<String> myList = new ArrayList<>();
 
-        verifyThrowable(() -> list.get(0));
+        verifyThrowable(() -> myList.get(0));
         if (!expectedMessage.equals(caughtThrowable().getMessage())) {
             assertEquals(expectedMessageJdk9on, caughtThrowable().getMessage());
         }
@@ -270,19 +270,19 @@ class CatchThrowableTest {
     @Test
     void catchExceptionObjNoExceptionThrown() {
 
-        List<String> list = new ArrayList<>();
+        List<String> myList = new ArrayList<>();
 
         // no exception thrown by size()
-        catchThrowable(list::size);
+        catchThrowable(myList::size);
         assertNull(caughtThrowable());
     }
 
     @Test
     void catchExceptionObjExceptionThrown() {
 
-        List<String> list = new ArrayList<>();
+        List<String> myList = new ArrayList<>();
 
-        catchThrowable(() -> list.get(0));
+        catchThrowable(() -> myList.get(0));
         if (!expectedMessage.equals(caughtThrowable().getMessage())) {
             assertEquals(expectedMessageJdk9on, caughtThrowable().getMessage());
         }

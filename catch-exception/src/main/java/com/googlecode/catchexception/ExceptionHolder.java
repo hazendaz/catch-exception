@@ -1,5 +1,5 @@
 /*
- * Copyright 2011-2023 the original author or authors.
+ * Copyright 2011-2024 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,7 +20,14 @@ import java.lang.ref.WeakReference;
 /**
  * Holds a caught exception {@link ThreadLocal per Thread}.
  */
-class ExceptionHolder {
+final class ExceptionHolder {
+
+    /**
+     * Prevents Instantiation of a new exception holder.
+     */
+    private ExceptionHolder() {
+        // Prevent instantiation
+    }
 
     /**
      * The container for the most recently caught exception.

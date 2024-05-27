@@ -1,5 +1,5 @@
 /*
- * Copyright 2011-2023 the original author or authors.
+ * Copyright 2011-2024 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,6 +27,7 @@ import org.hamcrest.Description;
 public class Find extends BaseMatcher<String> implements Serializable {
 
     private static final long serialVersionUID = 8895781429480404872L;
+
     private final String regex;
 
     public Find(String regex) {

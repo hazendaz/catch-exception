@@ -1,5 +1,5 @@
 /*
- * Copyright 2011-2023 the original author or authors.
+ * Copyright 2011-2024 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -66,6 +66,19 @@ public class BDDCatchThrowable {
         return CatchThrowable.caughtThrowable();
     }
 
+    /**
+     * Caught throwable.
+     *
+     * @param <T>
+     *            the generic type
+     * @param caughtThrowableType
+     *            the caught throwable type
+     *
+     * @return the t
+     *
+     * @deprecated Use caghtThrowable() instead as the passed argument does nothing
+     */
+    @Deprecated(since = "3.3.0", forRemoval = true)
     public static <T extends Throwable> T caughtThrowable(Class<T> caughtThrowableType) {
         return CatchThrowable.caughtThrowable(caughtThrowableType);
     }

@@ -26,7 +26,7 @@ import org.junit.jupiter.api.Test;
 class ExceptionHolderTest {
 
     @Test
-    void caughtExceptionIsNull() throws Exception {
+    void caughtExceptionIsNull() {
 
         ExceptionHolder.set(null);
         assertNull(ExceptionHolder.get());

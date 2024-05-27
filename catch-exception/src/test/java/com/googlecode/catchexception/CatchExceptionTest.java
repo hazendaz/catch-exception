@@ -196,7 +196,6 @@ class CatchExceptionTest {
         }
     }
 
-    // fixme
     @Test
     void verifyExceptionObjExcMissingArgumentException() {
 
@@ -223,11 +222,11 @@ class CatchExceptionTest {
     @Test
     void verifyExceptionObjNoExceptionThrown() {
 
-        List<String> list = new ArrayList<>();
+        List<String> myList = new ArrayList<>();
 
         // no exception thrown by size()
         try {
-            verifyException(list::size);
+            verifyException(myList::size);
             fail("ExceptionNotThrownAssertionError is expected");
         } catch (ExceptionNotThrownAssertionError e) {
             assertNull(caughtException());
@@ -238,9 +237,9 @@ class CatchExceptionTest {
     @Test
     void verifyExceptionObjExceptionThrown() {
 
-        List<String> list = new ArrayList<>();
+        List<String> myList = new ArrayList<>();
 
-        verifyException(() -> list.get(0));
+        verifyException(() -> myList.get(0));
         if (!expectedMessage.equals(caughtException().getMessage())) {
             assertEquals(expectedMessageJdk9on, caughtException().getMessage());
         }
@@ -261,19 +260,19 @@ class CatchExceptionTest {
     @Test
     void catchExceptionObjNoExceptionThrown() {
 
-        List<String> list = new ArrayList<>();
+        List<String> myList = new ArrayList<>();
 
         // no exception thrown by size()
-        catchException(list::size);
+        catchException(myList::size);
         assertNull(caughtException());
     }
 
     @Test
     void catchExceptionObjExceptionThrown() {
 
-        List<String> list = new ArrayList<>();
+        List<String> myList = new ArrayList<>();
 
-        catchException(() -> list.get(0));
+        catchException(() -> myList.get(0));
         if (!expectedMessage.equals(caughtException().getMessage())) {
             assertEquals(expectedMessageJdk9on, caughtException().getMessage());
         }
