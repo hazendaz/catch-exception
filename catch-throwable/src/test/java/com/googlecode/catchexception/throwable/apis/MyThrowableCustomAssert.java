@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.googlecode.catchexception.throwable.test.apis;
+package com.googlecode.catchexception.throwable.apis;
 
 import com.googlecode.catchexception.throwable.MyThrowable;
 

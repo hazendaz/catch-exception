@@ -13,11 +13,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.googlecode.catchexception.throwable.test.apis;
+package com.googlecode.catchexception.throwable.apis;
 
 import static com.googlecode.catchexception.throwable.apis.BDDCatchThrowable.when;
-import static com.googlecode.catchexception.throwable.test.apis.MyThrowableCustomAssertions.caughtThrowable;
-import static com.googlecode.catchexception.throwable.test.apis.MyThrowableCustomAssertions.then;
+import static com.googlecode.catchexception.throwable.apis.MyThrowableCustomAssertions.caughtThrowable;
+import static com.googlecode.catchexception.throwable.apis.MyThrowableCustomAssertions.then;
 
 import com.googlecode.catchexception.throwable.MyThrowable;
 
