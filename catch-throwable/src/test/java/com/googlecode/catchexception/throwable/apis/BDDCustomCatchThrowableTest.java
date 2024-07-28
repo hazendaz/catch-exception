@@ -31,7 +31,8 @@ class BDDCustomCatchThrowableTest {
     /**
      * Custom exception.
      *
-     * @throws Exception the exception
+     * @throws Exception
+     *             the exception
      */
     @Test
     void customException() throws Exception {
