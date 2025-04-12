@@ -23,12 +23,12 @@
     <parent>
         <groupId>com.github.hazendaz.catch-exception</groupId>
         <artifactId>catch-exception-parent</artifactId>
-        <version>2.3.4-SNAPSHOT</version>
+        <version>2.3.4</version>
     </parent>
 
     <groupId>com.github.hazendaz.catch-exception</groupId>
     <artifactId>catch-throwable</artifactId>
-    <version>2.3.4-SNAPSHOT</version>
+    <version>2.3.4</version>
 
     <name>catch-throwable</name>
     <description>Catch throwables (not only exceptions)</description>
@@ -36,7 +36,7 @@
     <scm>
         <connection>scm:git:ssh://git@github.com/hazendaz/catch-exception.git</connection>
         <developerConnection>scm:git:ssh://git@github.com/hazendaz/catch-exception.git</developerConnection>
-        <tag>HEAD</tag>
+        <tag>catch-exception-parent-2.3.4</tag>
         <url>https://github.com/hazendaz/catch-exception/</url>
     </scm>
 
