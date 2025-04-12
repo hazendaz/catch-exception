@@ -1,3 +1,7 @@
+com.googlecode.catchexception
+com.googlecode.catchexception.apis
+com.googlecode.catchexception.matcher
+com.googlecode.catchexception.support
 com.googlecode.catchexception.throwable
 com.googlecode.catchexception.throwable.apis
 com.googlecode.catchexception.throwable.matcher
