@@ -1,1 +1,1 @@
-packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"com.googlecode.catchexception.throwable"},{"l":"com.googlecode.catchexception.throwable.apis"},{"l":"com.googlecode.catchexception.throwable.matcher"}];updateSearchResults();
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html","k":"18"},{"l":"com.googlecode.catchexception.throwable"},{"l":"com.googlecode.catchexception.throwable.apis"},{"l":"com.googlecode.catchexception.throwable.matcher"}];updateSearchResults();
