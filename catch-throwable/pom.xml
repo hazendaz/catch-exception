@@ -32,6 +32,9 @@
     </scm>
 
     <properties>
+        <!-- Jacoco minimum code coverage -->
+        <jacoco.minimum.coverage>0.86</jacoco.minimum.coverage>
+
         <!-- Automatic Module Name -->
         <module.name>com.googlecode.catchexception.throwable</module.name>
     </properties>
